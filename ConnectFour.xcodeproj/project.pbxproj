@@ -22,6 +22,14 @@
 		9F42B79127A012CF0032C012 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9F42B79327A012CF0032C012 /* Localizable.strings */; };
 		9F42B79727A012FF0032C012 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F42B79627A012FF0032C012 /* LaunchScreen.storyboard */; };
 		9F42B79927A013D50032C012 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F42B79827A013D50032C012 /* Main.storyboard */; };
+		9F42B79B27A0182A0032C012 /* Game.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F42B79A27A0182A0032C012 /* Game.storyboard */; };
+		9F42B79E27A01AE80032C012 /* Storyboard+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F42B79D27A01AE80032C012 /* Storyboard+App.swift */; };
+		9F42B7A027A01BE50032C012 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F42B79F27A01BE50032C012 /* GameViewController.swift */; };
+		9F42B7A227A01BF00032C012 /* GameContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F42B7A127A01BF00032C012 /* GameContainer.swift */; };
+		9F42B7A427A01BFD0032C012 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F42B7A327A01BFD0032C012 /* GameViewModel.swift */; };
+		9F42B7A627A01C5C0032C012 /* GameCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F42B7A527A01C5C0032C012 /* GameCoordinator.swift */; };
+		9F42B7AA27A032740032C012 /* SpotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F42B7A927A032740032C012 /* SpotView.swift */; };
+		9F42B7AC27A0541F0032C012 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F42B7AB27A0541F0032C012 /* Colors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +61,14 @@
 		9F42B79227A012CF0032C012 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9F42B79627A012FF0032C012 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9F42B79827A013D50032C012 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		9F42B79A27A0182A0032C012 /* Game.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Game.storyboard; sourceTree = "<group>"; };
+		9F42B79D27A01AE80032C012 /* Storyboard+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storyboard+App.swift"; sourceTree = "<group>"; };
+		9F42B79F27A01BE50032C012 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		9F42B7A127A01BF00032C012 /* GameContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameContainer.swift; sourceTree = "<group>"; };
+		9F42B7A327A01BFD0032C012 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
+		9F42B7A527A01C5C0032C012 /* GameCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCoordinator.swift; sourceTree = "<group>"; };
+		9F42B7A927A032740032C012 /* SpotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotView.swift; sourceTree = "<group>"; };
+		9F42B7AB27A0541F0032C012 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				9F42B78E27A012990032C012 /* Common */,
+				9F42B79C27A01AB70032C012 /* Game */,
 				9F42B78427A00BDB0032C012 /* Main */,
 			);
 			path = Modules;
@@ -164,9 +181,24 @@
 			children = (
 				9F42B78A27A0110D0032C012 /* Reusable.swift */,
 				9F42B78827A00FCE0032C012 /* Reusable+Storyboard.swift */,
+				9F42B79D27A01AE80032C012 /* Storyboard+App.swift */,
+				9F42B7AB27A0541F0032C012 /* Colors.swift */,
 				9F42B77F27A009180032C012 /* Coordinator */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		9F42B79C27A01AB70032C012 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				9F42B79A27A0182A0032C012 /* Game.storyboard */,
+				9F42B7A527A01C5C0032C012 /* GameCoordinator.swift */,
+				9F42B79F27A01BE50032C012 /* GameViewController.swift */,
+				9F42B7A327A01BFD0032C012 /* GameViewModel.swift */,
+				9F42B7A127A01BF00032C012 /* GameContainer.swift */,
+				9F42B7A927A032740032C012 /* SpotView.swift */,
+			);
+			path = Game;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,6 +285,7 @@
 				9F42B79727A012FF0032C012 /* LaunchScreen.storyboard in Resources */,
 				9F42B79127A012CF0032C012 /* Localizable.strings in Resources */,
 				9F42B75527A005900032C012 /* Assets.xcassets in Resources */,
+				9F42B79B27A0182A0032C012 /* Game.storyboard in Resources */,
 				9F42B79927A013D50032C012 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -271,12 +304,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F42B7A627A01C5C0032C012 /* GameCoordinator.swift in Sources */,
+				9F42B7A227A01BF00032C012 /* GameContainer.swift in Sources */,
 				9F42B77C27A008910032C012 /* Coordinator.swift in Sources */,
+				9F42B7AC27A0541F0032C012 /* Colors.swift in Sources */,
 				9F42B78127A009E30032C012 /* MainCoordinator.swift in Sources */,
 				9F42B75027A0058D0032C012 /* MainViewController.swift in Sources */,
 				9F42B77E27A008990032C012 /* AppCoordinator.swift in Sources */,
+				9F42B7A027A01BE50032C012 /* GameViewController.swift in Sources */,
+				9F42B7A427A01BFD0032C012 /* GameViewModel.swift in Sources */,
 				9F42B78B27A0110D0032C012 /* Reusable.swift in Sources */,
 				9F42B74C27A0058D0032C012 /* AppDelegate.swift in Sources */,
+				9F42B7AA27A032740032C012 /* SpotView.swift in Sources */,
+				9F42B79E27A01AE80032C012 /* Storyboard+App.swift in Sources */,
 				9F42B74E27A0058D0032C012 /* SceneDelegate.swift in Sources */,
 				9F42B78627A00C560032C012 /* MainContainer.swift in Sources */,
 				9F42B78327A00AD20032C012 /* MainViewModel.swift in Sources */,
@@ -439,6 +479,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ConnectFour/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Connect4;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -466,6 +507,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ConnectFour/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Connect4;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;

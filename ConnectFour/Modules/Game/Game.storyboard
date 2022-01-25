@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Game View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="GameViewController" id="Y6W-OH-hqX" customClass="GameViewController" customModule="ConnectFour" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Fu-Xk-PDq">
+                                <rect key="frame" x="15" y="283.5" width="384" height="329"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Wv-y5-lLg">
+                                        <rect key="frame" x="0.0" y="0.0" width="384" height="329"/>
+                                        <color key="backgroundColor" systemColor="systemBrownColor"/>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="zTj-BT-QiX" userLabel="Tile Holes">
+                                        <rect key="frame" x="0.0" y="0.0" width="384" height="329"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="1wB-co-UY2">
+                                                <rect key="frame" x="0.0" y="0.0" width="384" height="55"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m0O-4B-Ffk" customClass="SpotView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="55" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="m0O-4B-Ffk" secondAttribute="height" multiplier="1:1" id="eCP-0m-CyD"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8bn-Sm-gUR" customClass="SpotView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="55" y="0.0" width="54.5" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="8bn-Sm-gUR" secondAttribute="height" multiplier="1:1" id="4hx-MJ-K01"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qlh-3W-34w" customClass="SpotView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="109.5" y="0.0" width="55" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="Qlh-3W-34w" secondAttribute="height" multiplier="1:1" id="3KA-AE-a85"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HiG-85-1VE" customClass="SpotView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="164.5" y="0.0" width="55" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="HiG-85-1VE" secondAttribute="height" multiplier="1:1" id="lYm-Fd-FlI"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bCI-ne-Xtc" customClass="SpotView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="219.5" y="0.0" width="55" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="bCI-ne-Xtc" secondAttribute="height" multiplier="1:1" id="XUa-pY-V4V"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uhk-Xh-gce" customClass="SpotView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="274.5" y="0.0" width="54.5" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="uhk-Xh-gce" secondAttribute="height" multiplier="1:1" id="hlO-id-CmM"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CUX-JL-J4u" customClass="SpotView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="329" y="0.0" width="55" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="CUX-JL-J4u" secondAttribute="height" multiplier="1:1" id="3va-a5-heT"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="8bn-Sm-gUR" firstAttribute="width" secondItem="8bn-Sm-gUR" secondAttribute="height" multiplier="1:1" id="2aG-n1-IxT"/>
+                                                    <constraint firstItem="Qlh-3W-34w" firstAttribute="width" secondItem="Qlh-3W-34w" secondAttribute="height" multiplier="1:1" id="Fzt-4f-Hjc"/>
+                                                    <constraint firstItem="uhk-Xh-gce" firstAttribute="width" secondItem="uhk-Xh-gce" secondAttribute="height" multiplier="1:1" id="HmV-GU-cEb"/>
+                                                    <constraint firstItem="bCI-ne-Xtc" firstAttribute="width" secondItem="bCI-ne-Xtc" secondAttribute="height" multiplier="1:1" id="YSt-uM-4R6"/>
+                                                    <constraint firstItem="CUX-JL-J4u" firstAttribute="width" secondItem="CUX-JL-J4u" secondAttribute="height" multiplier="1:1" id="aqx-y1-AC9"/>
+                                                    <constraint firstItem="CUX-JL-J4u" firstAttribute="width" secondItem="CUX-JL-J4u" secondAttribute="height" multiplier="1:1" id="xyR-cx-7Zn"/>
+                                                    <constraint firstItem="HiG-85-1VE" firstAttribute="width" secondItem="HiG-85-1VE" secondAttribute="height" multiplier="1:1" id="y4f-FX-OTo"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="2xh-dZ-UDh">
+                                                <rect key="frame" x="0.0" y="55" width="384" height="54.5"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CbW-m8-Qbe" customClass="SpotView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="55" height="54.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="CbW-m8-Qbe" secondAttribute="height" multiplier="1:1" id="5hQ-of-1A9"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OX0-s5-u8Y" customClass="SpotView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="55" y="0.0" width="54.5" height="54.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="OX0-s5-u8Y" secondAttribute="height" multiplier="1:1" id="jz4-tY-zYy"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KvB-e6-1ek" customClass="SpotView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="109.5" y="0.0" width="55" height="54.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="KvB-e6-1ek" secondAttribute="height" multiplier="1:1" id="Lxx-Ow-YKa"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iWG-Ml-HZE" customClass="SpotView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="164.5" y="0.0" width="55" height="54.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="iWG-Ml-HZE" secondAttribute="height" multiplier="1:1" id="glz-OC-c3a"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dj4-wv-aNh" customClass="SpotView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="219.5" y="0.0" width="55" height="54.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="dj4-wv-aNh" secondAttribute="height" multiplier="1:1" id="CH9-E4-nSm"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uM8-s5-dLG" customClass="SpotView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="274.5" y="0.0" width="54.5" height="54.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="uM8-s5-dLG" secondAttribute="height" multiplier="1:1" id="XGY-A0-NFI"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N1g-fe-6h0" customClass="SpotView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="329" y="0.0" width="55" height="54.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="N1g-fe-6h0" secondAttribute="height" multiplier="1:1" id="TKH-Pq-7TL"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="N1g-fe-6h0" firstAttribute="width" secondItem="N1g-fe-6h0" secondAttribute="height" multiplier="1:1" id="L4d-JV-eu8"/>
+                                                    <constraint firstItem="dj4-wv-aNh" firstAttribute="width" secondItem="dj4-wv-aNh" secondAttribute="height" multiplier="1:1" id="ScQ-ys-7lo"/>
+                                                    <constraint firstItem="KvB-e6-1ek" firstAttribute="width" secondItem="KvB-e6-1ek" secondAttribute="height" multiplier="1:1" id="T1O-HV-Oia"/>
+                                                    <constraint firstItem="uM8-s5-dLG" firstAttribute="width" secondItem="uM8-s5-dLG" secondAttribute="height" multiplier="1:1" id="Xz5-M6-NR1"/>
+                                                    <constraint firstItem="iWG-Ml-HZE" firstAttribute="width" secondItem="iWG-Ml-HZE" secondAttribute="height" multiplier="1:1" id="aAN-OF-ps6"/>
+                                                    <constraint firstItem="OX0-s5-u8Y" firstAttribute="width" secondItem="OX0-s5-u8Y" secondAttribute="height" multiplier="1:1" id="izs-4Q-ibq"/>
+                                                    <constraint firstItem="N1g-fe-6h0" firstAttribute="width" secondItem="N1g-fe-6h0" secondAttribute="height" multiplier="1:1" id="q6T-vq-lW1"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="cwn-jG-gFF">
+                                                <rect key="frame" x="0.0" y="109.5" width="384" height="55"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z9t-9P-s1J" customClass="SpotView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="55" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="z9t-9P-s1J" secondAttribute="height" multiplier="1:1" id="Cbj-9f-U02"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UZI-bh-JTV" customClass="SpotView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="55" y="0.0" width="54.5" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="UZI-bh-JTV" secondAttribute="height" multiplier="1:1" id="4oo-o5-gLB"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lRZ-YR-QCU" customClass="SpotView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="109.5" y="0.0" width="55" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="lRZ-YR-QCU" secondAttribute="height" multiplier="1:1" id="Fom-Oi-VTs"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LhG-tu-AoS" customClass="SpotView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="164.5" y="0.0" width="55" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="LhG-tu-AoS" secondAttribute="height" multiplier="1:1" id="K6k-Pz-q9O"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jcx-ph-YxH" customClass="SpotView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="219.5" y="0.0" width="55" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="jcx-ph-YxH" secondAttribute="height" multiplier="1:1" id="Xav-yM-DdE"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pm7-pR-S4G" customClass="SpotView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="274.5" y="0.0" width="54.5" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="Pm7-pR-S4G" secondAttribute="height" multiplier="1:1" id="enZ-xY-tEQ"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nuK-fr-uCf" customClass="SpotView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="329" y="0.0" width="55" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="nuK-fr-uCf" secondAttribute="height" multiplier="1:1" id="ep2-jD-hym"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="LhG-tu-AoS" firstAttribute="width" secondItem="LhG-tu-AoS" secondAttribute="height" multiplier="1:1" id="0wS-Oi-dVq"/>
+                                                    <constraint firstItem="nuK-fr-uCf" firstAttribute="width" secondItem="nuK-fr-uCf" secondAttribute="height" multiplier="1:1" id="52k-9m-RjI"/>
+                                                    <constraint firstItem="nuK-fr-uCf" firstAttribute="width" secondItem="nuK-fr-uCf" secondAttribute="height" multiplier="1:1" id="Pud-wk-ywn"/>
+                                                    <constraint firstItem="lRZ-YR-QCU" firstAttribute="width" secondItem="lRZ-YR-QCU" secondAttribute="height" multiplier="1:1" id="aIY-Ha-alb"/>
+                                                    <constraint firstItem="UZI-bh-JTV" firstAttribute="width" secondItem="UZI-bh-JTV" secondAttribute="height" multiplier="1:1" id="hKG-iV-etW"/>
+                                                    <constraint firstItem="Pm7-pR-S4G" firstAttribute="width" secondItem="Pm7-pR-S4G" secondAttribute="height" multiplier="1:1" id="vXT-rB-5yL"/>
+                                                    <constraint firstItem="jcx-ph-YxH" firstAttribute="width" secondItem="jcx-ph-YxH" secondAttribute="height" multiplier="1:1" id="vez-Te-57h"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="igU-ie-0tS">
+                                                <rect key="frame" x="0.0" y="164.5" width="384" height="55"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MK0-fl-Bfl" customClass="SpotView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="55" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="MK0-fl-Bfl" secondAttribute="height" multiplier="1:1" id="Rtn-OV-xul"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7sy-ep-FyZ" customClass="SpotView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="55" y="0.0" width="54.5" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="7sy-ep-FyZ" secondAttribute="height" multiplier="1:1" id="acJ-QH-9aX"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="00s-bd-L5J" customClass="SpotView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="109.5" y="0.0" width="55" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="00s-bd-L5J" secondAttribute="height" multiplier="1:1" id="vwy-Bh-WXy"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="da1-Uo-AbE" customClass="SpotView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="164.5" y="0.0" width="55" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="da1-Uo-AbE" secondAttribute="height" multiplier="1:1" id="pxD-uA-U40"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jfl-Ix-4XA" customClass="SpotView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="219.5" y="0.0" width="55" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="Jfl-Ix-4XA" secondAttribute="height" multiplier="1:1" id="aGe-cK-tWP"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bqv-mL-wVW" customClass="SpotView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="274.5" y="0.0" width="54.5" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="bqv-mL-wVW" secondAttribute="height" multiplier="1:1" id="9vc-0E-CdN"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Ox-aY-eAO" customClass="SpotView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="329" y="0.0" width="55" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="6Ox-aY-eAO" secondAttribute="height" multiplier="1:1" id="MU9-f9-gey"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="da1-Uo-AbE" firstAttribute="width" secondItem="da1-Uo-AbE" secondAttribute="height" multiplier="1:1" id="3Ks-DR-x0e"/>
+                                                    <constraint firstItem="7sy-ep-FyZ" firstAttribute="width" secondItem="7sy-ep-FyZ" secondAttribute="height" multiplier="1:1" id="G7j-qE-w4F"/>
+                                                    <constraint firstItem="Jfl-Ix-4XA" firstAttribute="width" secondItem="Jfl-Ix-4XA" secondAttribute="height" multiplier="1:1" id="N7L-eI-rIu"/>
+                                                    <constraint firstItem="6Ox-aY-eAO" firstAttribute="width" secondItem="6Ox-aY-eAO" secondAttribute="height" multiplier="1:1" id="U4G-V2-66M"/>
+                                                    <constraint firstItem="00s-bd-L5J" firstAttribute="width" secondItem="00s-bd-L5J" secondAttribute="height" multiplier="1:1" id="fwc-vL-74Z"/>
+                                                    <constraint firstItem="6Ox-aY-eAO" firstAttribute="width" secondItem="6Ox-aY-eAO" secondAttribute="height" multiplier="1:1" id="mlJ-fJ-CBU"/>
+                                                    <constraint firstItem="bqv-mL-wVW" firstAttribute="width" secondItem="bqv-mL-wVW" secondAttribute="height" multiplier="1:1" id="ujJ-6N-1Nq"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="aQX-WB-gnA">
+                                                <rect key="frame" x="0.0" y="219.5" width="384" height="54.5"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ziW-Yr-vBt" customClass="SpotView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="55" height="54.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="ziW-Yr-vBt" secondAttribute="height" multiplier="1:1" id="igy-K3-IZZ"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k7a-8u-ifQ" customClass="SpotView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="55" y="0.0" width="54.5" height="54.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="k7a-8u-ifQ" secondAttribute="height" multiplier="1:1" id="zPe-nu-WBq"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8AS-3o-giD" customClass="SpotView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="109.5" y="0.0" width="55" height="54.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="8AS-3o-giD" secondAttribute="height" multiplier="1:1" id="NMH-yj-SDn"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xnb-mE-BiD" customClass="SpotView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="164.5" y="0.0" width="55" height="54.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="Xnb-mE-BiD" secondAttribute="height" multiplier="1:1" id="20m-wU-vw4"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nLF-Mm-jaS" customClass="SpotView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="219.5" y="0.0" width="55" height="54.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="nLF-Mm-jaS" secondAttribute="height" multiplier="1:1" id="9uI-B9-Ecy"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pVU-ki-fbf" customClass="SpotView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="274.5" y="0.0" width="54.5" height="54.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="pVU-ki-fbf" secondAttribute="height" multiplier="1:1" id="yb2-5S-txB"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ugs-Zx-M8A" customClass="SpotView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="329" y="0.0" width="55" height="54.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="ugs-Zx-M8A" secondAttribute="height" multiplier="1:1" id="qMM-Xd-DGU"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="pVU-ki-fbf" firstAttribute="width" secondItem="pVU-ki-fbf" secondAttribute="height" multiplier="1:1" id="GKQ-OT-vAT"/>
+                                                    <constraint firstItem="Xnb-mE-BiD" firstAttribute="width" secondItem="Xnb-mE-BiD" secondAttribute="height" multiplier="1:1" id="M1T-73-mrd"/>
+                                                    <constraint firstItem="ugs-Zx-M8A" firstAttribute="width" secondItem="ugs-Zx-M8A" secondAttribute="height" multiplier="1:1" id="Mgn-22-72S"/>
+                                                    <constraint firstItem="nLF-Mm-jaS" firstAttribute="width" secondItem="nLF-Mm-jaS" secondAttribute="height" multiplier="1:1" id="Ntl-4H-Bb6"/>
+                                                    <constraint firstItem="8AS-3o-giD" firstAttribute="width" secondItem="8AS-3o-giD" secondAttribute="height" multiplier="1:1" id="UCy-5f-Plp"/>
+                                                    <constraint firstItem="k7a-8u-ifQ" firstAttribute="width" secondItem="k7a-8u-ifQ" secondAttribute="height" multiplier="1:1" id="h8C-CD-49G"/>
+                                                    <constraint firstItem="ugs-Zx-M8A" firstAttribute="width" secondItem="ugs-Zx-M8A" secondAttribute="height" multiplier="1:1" id="xON-Bc-Md0"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="eI2-LK-Qb0">
+                                                <rect key="frame" x="0.0" y="274" width="384" height="55"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qRj-qn-2rk" customClass="SpotView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="55" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="qRj-qn-2rk" secondAttribute="height" multiplier="1:1" id="5LO-Sy-wtD"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BDr-ZW-C38" customClass="SpotView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="55" y="0.0" width="54.5" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="BDr-ZW-C38" secondAttribute="height" multiplier="1:1" id="R3D-fr-49Y"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="abC-bh-ama" customClass="SpotView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="109.5" y="0.0" width="55" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="abC-bh-ama" secondAttribute="height" multiplier="1:1" id="RxC-tQ-mzl"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9jw-nC-mBU" customClass="SpotView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="164.5" y="0.0" width="55" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="9jw-nC-mBU" secondAttribute="height" multiplier="1:1" id="14F-Vm-grj"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EHO-Io-lBG" customClass="SpotView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="219.5" y="0.0" width="55" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="EHO-Io-lBG" secondAttribute="height" multiplier="1:1" id="7FV-58-pPY"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Idw-Ft-3mN" customClass="SpotView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="274.5" y="0.0" width="54.5" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="Idw-Ft-3mN" secondAttribute="height" multiplier="1:1" id="fci-xP-PtS"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xqL-tb-3cJ" customClass="SpotView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="329" y="0.0" width="55" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="xqL-tb-3cJ" secondAttribute="height" multiplier="1:1" id="yav-xE-UAk"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="xqL-tb-3cJ" firstAttribute="width" secondItem="xqL-tb-3cJ" secondAttribute="height" multiplier="1:1" id="06H-Ou-x4L"/>
+                                                    <constraint firstItem="Idw-Ft-3mN" firstAttribute="width" secondItem="Idw-Ft-3mN" secondAttribute="height" multiplier="1:1" id="4TY-WE-ex8"/>
+                                                    <constraint firstItem="EHO-Io-lBG" firstAttribute="width" secondItem="EHO-Io-lBG" secondAttribute="height" multiplier="1:1" id="5DB-Rk-tXg"/>
+                                                    <constraint firstItem="9jw-nC-mBU" firstAttribute="width" secondItem="9jw-nC-mBU" secondAttribute="height" multiplier="1:1" id="NCF-xs-U5t"/>
+                                                    <constraint firstItem="xqL-tb-3cJ" firstAttribute="width" secondItem="xqL-tb-3cJ" secondAttribute="height" multiplier="1:1" id="W9C-Bp-VgM"/>
+                                                    <constraint firstItem="BDr-ZW-C38" firstAttribute="width" secondItem="BDr-ZW-C38" secondAttribute="height" multiplier="1:1" id="c4t-an-LSO"/>
+                                                    <constraint firstItem="abC-bh-ama" firstAttribute="width" secondItem="abC-bh-ama" secondAttribute="height" multiplier="1:1" id="diz-Tz-jFp"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemGrayColor"/>
+                                <constraints>
+                                    <constraint firstItem="zTj-BT-QiX" firstAttribute="top" secondItem="8Fu-Xk-PDq" secondAttribute="top" id="5R6-sb-J3g"/>
+                                    <constraint firstItem="zTj-BT-QiX" firstAttribute="leading" secondItem="8Fu-Xk-PDq" secondAttribute="leading" id="B0j-6R-ENh"/>
+                                    <constraint firstAttribute="trailing" secondItem="8Wv-y5-lLg" secondAttribute="trailing" id="XHk-aP-0Y6"/>
+                                    <constraint firstAttribute="trailing" secondItem="zTj-BT-QiX" secondAttribute="trailing" id="Zx9-K3-lmH"/>
+                                    <constraint firstItem="8Wv-y5-lLg" firstAttribute="top" secondItem="8Fu-Xk-PDq" secondAttribute="top" id="bJ4-dy-0iJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="zTj-BT-QiX" secondAttribute="bottom" id="idJ-cc-DSU"/>
+                                    <constraint firstAttribute="bottom" secondItem="8Wv-y5-lLg" secondAttribute="bottom" id="rQd-FZ-qcL"/>
+                                    <constraint firstItem="8Wv-y5-lLg" firstAttribute="leading" secondItem="8Fu-Xk-PDq" secondAttribute="leading" id="ybz-u5-m8E"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jUg-5c-eLL">
+                                <rect key="frame" x="20" y="64" width="39" height="30"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Menu"/>
+                                <connections>
+                                    <action selector="navigateBack:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="HrN-3d-RcL"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="8Fu-Xk-PDq" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="15" id="Xwk-cx-BVW"/>
+                            <constraint firstItem="jUg-5c-eLL" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="ZgJ-x6-Soe"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="8Fu-Xk-PDq" secondAttribute="trailing" constant="15" id="h8Y-lw-Ap6"/>
+                            <constraint firstItem="jUg-5c-eLL" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="mZY-ZI-qW8"/>
+                            <constraint firstItem="8Fu-Xk-PDq" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="z8G-ug-HM9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="boardContainer" destination="8Fu-Xk-PDq" id="FdN-BM-YA9"/>
+                        <outlet property="boardInsideView" destination="8Wv-y5-lLg" id="CSB-98-dkx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="114.50892857142857"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBrownColor">
+            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

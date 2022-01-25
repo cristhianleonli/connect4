@@ -9,11 +9,24 @@ import UIKit
 
 class MainViewController: UIViewController {
     
+    @IBOutlet private var onePlayerButton: UIButton!
+    @IBOutlet private var twoPlayerButton: UIButton!
+    
     var viewModel: MainViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.backgroundColor = .cyan
+    }
+}
+
+private extension MainViewController {
+    @IBAction
+    func onePlayerButtonTapped(_ sender: Any) {
+        viewModel.showGameView(gameType: .single)
+    }
+    
+    @IBAction
+    func twoPlayersButtonTapped(_ sender: Any) {
+        viewModel.showGameView(gameType: .multiplayer)
     }
 }

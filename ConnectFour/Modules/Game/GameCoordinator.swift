@@ -1,5 +1,5 @@
 //
-//  MainCoordinator.swift
+//  GameCoordinator.swift
 //  ConnectFour
 //
 //  Created by Cristhian Leon on 25/01/22.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class MainCoordinator: Coordinator {
+final class GameCoordinator: Coordinator {
     
     var navigationController: UINavigationController
     
@@ -16,16 +16,16 @@ final class MainCoordinator: Coordinator {
     }
     
     func start() {
-        let container = MainContainer()
-        let viewModel = MainViewModel(coordinator: self, container: container)
+        let container = GameContainer()
+        let viewModel = GameViewModel(coordinator: self, container: container)
         
-        let viewController: MainViewController = UIStoryboard.main.instantiateViewController()
+        let viewController: GameViewController = UIStoryboard.game.instantiateViewController()
         viewController.viewModel = viewModel
         
         navigationController.pushViewController(viewController, animated: true)
     }
     
-    func showGameView(gameType: MainViewModel.GameType) {
-        GameCoordinator(navigationController).start()
+    func navigateBack() {
+        navigationController.popViewController(animated: true)
     }
 }
