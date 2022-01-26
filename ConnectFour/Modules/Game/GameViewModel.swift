@@ -72,13 +72,19 @@ extension GameViewModel {
     }
     
     func playerWantsToMove(column: Int) {
+        guard column >= 0 && column < board.columnCount else {
+            return
+        }
+        
         board.addTile(value: currentPlayer.id, toColumn: column)
         currentState = .rendering(column)
     }
     
     func postMovingChecks() {
-        if board.hasWinner {
-            endGame(winner: currentPlayer)
+        if let winner = board.findWinner() {
+            if winner == currentPlayer.id {
+                endGame(winner: currentPlayer)
+            }
         } else if board.isFull {
             endGame(winner: nil)
         } else {
@@ -86,7 +92,13 @@ extension GameViewModel {
         }
     }
     
+    func canAddTiles(at index: Int) -> Bool {
+        return board.numberOfTiles(at: index) < board.rowCount
+    }
+    
     func restart() {
+        currentPlayer = youPlayer
+        self.currentState = .idle(currentPlayer)
         self.board = Board(width: gameConfig.boardWidth, height: gameConfig.boardHeight)
     }
     

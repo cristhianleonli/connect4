@@ -14,6 +14,7 @@ class GameViewController: UIViewController {
     @IBOutlet private weak var boardContainer: UIView!
     @IBOutlet private weak var boardInsideView: UIView!
     @IBOutlet private weak var tilesContainer: UIStackView!
+    @IBOutlet private weak var arrowsContainer: UIStackView!
     @IBOutlet private weak var scoreView: ScoreView!
     
     @IBOutlet private weak var homeButton: MainButton!
@@ -24,6 +25,7 @@ class GameViewController: UIViewController {
     
     var viewModel: GameViewModel!
     private var tiles: [[TileView]] = []
+    private var arrows: [UIView] = []
     
     // MARK: Life cycle
     
@@ -42,7 +44,12 @@ class GameViewController: UIViewController {
 }
 
 private extension GameViewController {
-    func navigateBack() {
+    func leaveScreen(force: Bool = false) {
+        if force {
+            self.viewModel.navigateBack()
+            return
+        }
+        
         if viewModel.hasMadeMoves {
             let alert = UIAlertController(
                 title: viewModel.leaveAlertTitle,
@@ -74,12 +81,13 @@ private extension GameViewController {
         
         // convert views into objects
         extractBoardTiles()
+        extractArrows()
         
         // score view, where names and points are displayed
         scoreView.setupUI()
         
-        homeButton.setup(title: "Home", image: UIImage(named: "home")!, action: self.navigateBack)
-        restartButton.setup(title: "Restart", image: UIImage(named: "restart")!, action: self.restart)
+        homeButton.setup(title: "Home", image: UIImage(named: "home")!, action: { self.leaveScreen() })
+        restartButton.setup(title: "Restart", image: UIImage(named: "restart")!, action: { self.restart() })
         clearButton.setup(title: "Clear", image: UIImage(named: "clear")!, action: self.deleteStoredData)
     }
     
@@ -91,6 +99,10 @@ private extension GameViewController {
         }
     }
     
+    func extractArrows() {
+        arrows = arrowsContainer.arrangedSubviews
+    }
+    
     func bindViews() {
         viewModel.$currentState.sink { state in
             switch state {
@@ -99,13 +111,13 @@ private extension GameViewController {
                 self.refreshUI()
             case .rendering(let column):
                 print("rendering move at: \(column)")
-                
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                DispatchQueue.main.asyncAfter(deadline: .now()) {
                     self.drawBoard()
                     self.viewModel.postMovingChecks()
                 }
             case .finished(let winner):
                 print("game has finished. Winner: \(winner?.id ?? "no winner")")
+                self.showEndGameAlert(winner: winner)
             }
         }
         .store(in: &viewModel.cancellables)
@@ -113,8 +125,13 @@ private extension GameViewController {
     
     @IBAction
     func playerWantsToMove(_ sender: UIButton) {
-        // TODO: implement
-        viewModel.playerWantsToMove(column: Int.random(in: 0...6))
+        switch viewModel.currentState {
+        case .idle:
+            let column = sender.tag
+            viewModel.playerWantsToMove(column: column)
+        default:
+            break
+        }
     }
     
     func deleteStoredData() {
@@ -135,7 +152,13 @@ private extension GameViewController {
         self.present(alert, animated: true)
     }
     
-    func restart() {
+    func restart(force: Bool = false) {
+        if force {
+            self.viewModel.restart()
+            self.refreshUI()
+            return
+        }
+        
         if viewModel.hasMadeMoves {
             let alert = UIAlertController(
                 title: viewModel.restartAlertTitle,
@@ -161,6 +184,13 @@ private extension GameViewController {
     func refreshUI() {
         drawBoard()
         refreshScoreView()
+        drawArrows()
+    }
+    
+    func drawArrows() {
+        for index in 0..<viewModel.board.columnCount {
+            arrows[index].alpha = viewModel.canAddTiles(at: index) ? 1 : 0
+        }
     }
     
     func refreshScoreView() {
@@ -184,5 +214,35 @@ private extension GameViewController {
                 }
             }
         }
+    }
+    
+    func showEndGameAlert(winner: Player?) {
+        let message: String
+        
+        if let winner = winner {
+            message = "Player with \(winner.color) tile wins"
+        } else {
+            message = "Draw"
+        }
+        
+        let alert = UIAlertController(
+            title: "Game over",
+            message: message,
+            preferredStyle:  .alert
+        )
+        
+        alert.addAction(UIAlertAction(title: "Play again", style: .default , handler: { [weak self] _ in
+            self?.restart(force: true)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Leave", style: .destructive , handler: { [weak self] _ in
+            self?.leaveScreen(force: true)
+        }))
+        
+        self.present(alert, animated: true)
+    }
+    
+    func rematch() {
+        
     }
 }

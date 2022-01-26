@@ -12,6 +12,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // this complies to the requirement of deleting the data
+        // every time the user relaunches the app
+        UserDefaultsScoreStorage().clearScores()
+        
         return true
     }
 
