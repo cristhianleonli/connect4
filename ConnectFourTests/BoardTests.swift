@@ -40,7 +40,7 @@ class BoardTests: XCTestCase {
         let board: Board<Int> = Board(width: width, height: height)
         
         // Then
-        for column in board.items{
+        for column in board.items {
             for item in column {
                 XCTAssertNil(item)
             }

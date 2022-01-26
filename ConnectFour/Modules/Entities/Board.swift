@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Board<T> where T: Comparable {
+final class Board<T> where T: Comparable {
     
     private var matrix: [[T?]]
     
@@ -47,7 +47,7 @@ class Board<T> where T: Comparable {
     
     func numberOfTiles(at index: Int) -> Int {
         guard index >= 0, index < matrix.count else {
-            print("Trying to access a position that doesn't exitst")
+            print("Trying to access a position that doesn't exist")
             return matrix.count
         }
         
@@ -65,70 +65,24 @@ class Board<T> where T: Comparable {
     func findWinner() -> T? {
         // check vertically, if there are >= 4 adjacent elements
         for column in matrix {
-            var adjacentCount = 1
-            var previous: T?
-            
-            // ignore nils, to avoid a winner of tiles
-            // iif nil wins, technically there's no winner, but to avoid that
-            // compactMap is used here.
-            for item in column.compactMap({ $0 }) {
-                if previous == nil {
-                    previous = item
-                    adjacentCount = 1
-                } else {
-                    if item == previous {
-                        adjacentCount += 1
-                    } else {
-                        adjacentCount = 1
-                    }
-                    
-                    previous = item
-                }
-                
-                // check for a winner in every item iteration
-                if adjacentCount >= 4 {
-                    return previous
-                }
+            if let winner = findAdjancentElements(list: column.compactMap({ $0 })) {
+                return winner
             }
         }
         
         // check horizontally, in this case, nils cannot be taken out, because
         // spaces between columns are valid to check whether there's a winner or not
         for index in 0..<matrix[0].count {
-            var adjacentCount = 1
-            var previous: T?
-            
             // vertical items in a single list
             let list = matrix.map({ $0[index] })
             
-            for item in list {
-                if previous == nil {
-                    previous = item
-                    adjacentCount = 1
-                } else {
-                    if item == previous {
-                        adjacentCount += 1
-                    } else {
-                        adjacentCount = 1
-                    }
-
-                    previous = item
-                }
-                
-                // check for a winner in every item iteration
-                if adjacentCount >= 4 {
-                    return previous
-                }
+            if let winner = findAdjancentElements(list: list) {
+                return winner
             }
         }
         
         // check diagonally
         return nil
-    }
-    
-    var hasWinner: Bool {
-        // TODO: check 4 tiles in a row
-        return false
     }
     
     var isFull: Bool {
@@ -173,5 +127,32 @@ class Board<T> where T: Comparable {
         }
         
         return matrix[index.x][index.y]
+    }
+    
+    func findAdjancentElements(list: [T?]) -> T? {
+        var adjacentCount = 1
+        var previous: T?
+        
+        for item in list {
+            if previous == nil {
+                previous = item
+                adjacentCount = 1
+            } else {
+                if item == previous {
+                    adjacentCount += 1
+                } else {
+                    adjacentCount = 1
+                }
+
+                previous = item
+            }
+            
+            // check for a winner in every item iteration
+            if adjacentCount >= 4 {
+                return previous
+            }
+        }
+        
+        return nil
     }
 }

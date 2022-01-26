@@ -26,7 +26,7 @@ class GameViewModel: ObservableObject {
     @Published private(set) var currentState: GameState
     
     enum GameState {
-        case idle(Player)
+        case idle
         case rendering(Int)
         case finished(Player?)
     }
@@ -58,7 +58,7 @@ class GameViewModel: ObservableObject {
         self.youPlayer = youPlayer
         self.otherPlayer = otherPlayer
         self.currentPlayer = youPlayer
-        self.currentState = .idle(currentPlayer)
+        self.currentState = .idle
     }
 }
 
@@ -98,7 +98,7 @@ extension GameViewModel {
     
     func restart() {
         currentPlayer = youPlayer
-        self.currentState = .idle(currentPlayer)
+        self.currentState = .idle
         self.board = Board(width: gameConfig.boardWidth, height: gameConfig.boardHeight)
     }
     
@@ -120,54 +120,78 @@ extension GameViewModel {
         return board.isEmpty == false
     }
     
+    // TODO: Localize
+    
     var deleteAlertTitle: String {
-        // TODO: Localize
         return "Careful!"
     }
     
     var deleteAlertSubtitle: String {
-        // TODO: Localize
         return "This action deletes all stored data about previous games. What would you like to do?"
     }
     
     var cancelAction: String {
-        // TODO: Localize
         return "Cancel"
     }
     
     var deleteAction: String {
-        // TODO: Localize
         return "Clear data"
     }
     
     var mainMenuAction: String {
-        // TODO: Localize
         return "Home"
     }
     
     var restartAction: String {
-        // TODO: Localize
         return "Restart"
     }
     
     var leaveAlertTitle: String {
-        // TODO: Localize
         return "You are about to leave."
     }
     
     var restartAlertTitle: String {
-        // TODO: Localize
         return "You are about to restart."
     }
     
     var leaveAlertSubtitle: String {
-        // TODO: Localize
         return "The progress of this game will be lost. What would you like to do?"
     }
     
     var leaveAction: String {
-        // TODO: Localize
         return "Leave"
+    }
+    
+    func winnerAlertPlayer(_ winner: String) -> String {
+        return "\(winner) wins!!"
+    }
+    
+    var winnerAlertTitle: String {
+        return "Game over"
+    }
+    
+    var winnerAlertDraw: String {
+        return "Draw"
+    }
+    
+    var dismissAction: String {
+        return "Dismiss"
+    }
+    
+    var playAgainAction: String {
+        return "Play again"
+    }
+    
+    var homeButton: String {
+        return "Home"
+    }
+    
+    var restartButton: String {
+        return "Restart"
+    }
+    
+    var clearButton: String {
+        return "Clear"
     }
 }
 
@@ -200,11 +224,12 @@ private extension GameViewModel {
         
         currentIndex = (currentIndex + 1) % players.count
         currentPlayer = players[currentIndex]
-        currentState = .idle(currentPlayer)
+        currentState = .idle
     }
     
+    // TODO: Localize
+    
     static func otherPlayerName(gameMode: GameConfiguration.GameMode) -> String {
-        // TODO: Localize
         switch gameMode {
         case .single: return "PC"
         case .multiplayer: return "Friend"
@@ -212,7 +237,6 @@ private extension GameViewModel {
     }
     
     static var youPlayerName: String {
-        // TODO: Localize
         return "You"
     }
 }

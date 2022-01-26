@@ -50,6 +50,14 @@ private extension GameViewController {
             return
         }
         
+        switch viewModel.currentState {
+        case .finished:
+            self.viewModel.navigateBack()
+            return
+        default:
+            break
+        }
+        
         if viewModel.hasMadeMoves {
             let alert = UIAlertController(
                 title: viewModel.leaveAlertTitle,
@@ -86,9 +94,9 @@ private extension GameViewController {
         // score view, where names and points are displayed
         scoreView.setupUI()
         
-        homeButton.setup(title: "Home", image: UIImage(named: "home")!, action: { self.leaveScreen() })
-        restartButton.setup(title: "Restart", image: UIImage(named: "restart")!, action: { self.restart() })
-        clearButton.setup(title: "Clear", image: UIImage(named: "clear")!, action: self.deleteStoredData)
+        homeButton.setup(title: viewModel.homeButton, image: UIImage(named: "home")!, action: { self.leaveScreen() })
+        restartButton.setup(title: viewModel.restartButton, image: UIImage(named: "restart")!, action: { self.restart() })
+        clearButton.setup(title: viewModel.clearButton, image: UIImage(named: "clear")!, action: self.deleteStoredData)
     }
     
     func extractBoardTiles() {
@@ -105,19 +113,17 @@ private extension GameViewController {
     
     func bindViews() {
         viewModel.$currentState.sink { state in
-            switch state {
-            case .idle(let player):
-                print("waiting for player \(player.id) to move")
-                self.refreshUI()
-            case .rendering(let column):
-                print("rendering move at: \(column)")
-                DispatchQueue.main.asyncAfter(deadline: .now()) {
+            DispatchQueue.main.async {
+                switch state {
+                case .idle:
+                    self.refreshUI()
+                case .rendering:
+                    // TODO: Add animation
                     self.drawBoard()
                     self.viewModel.postMovingChecks()
+                case .finished(let winner):
+                    self.showEndGameAlert(winner: winner)
                 }
-            case .finished(let winner):
-                print("game has finished. Winner: \(winner?.id ?? "no winner")")
-                self.showEndGameAlert(winner: winner)
             }
         }
         .store(in: &viewModel.cancellables)
@@ -157,6 +163,15 @@ private extension GameViewController {
             self.viewModel.restart()
             self.refreshUI()
             return
+        }
+        
+        switch viewModel.currentState {
+        case .finished:
+            self.viewModel.restart()
+            self.refreshUI()
+            return
+        default:
+            break
         }
         
         if viewModel.hasMadeMoves {
@@ -220,29 +235,24 @@ private extension GameViewController {
         let message: String
         
         if let winner = winner {
-            message = "Player with \(winner.color) tile wins"
+            message = viewModel.winnerAlertPlayer(winner.color.displayName)
         } else {
-            message = "Draw"
+            message = viewModel.winnerAlertDraw
         }
         
         let alert = UIAlertController(
-            title: "Game over",
+            title: viewModel.winnerAlertTitle,
             message: message,
             preferredStyle:  .alert
         )
         
-        alert.addAction(UIAlertAction(title: "Play again", style: .default , handler: { [weak self] _ in
+        alert.addAction(UIAlertAction(title: viewModel.dismissAction, style: .default , handler: { _ in
+        }))
+        
+        alert.addAction(UIAlertAction(title: viewModel.playAgainAction, style: .default , handler: { [weak self] _ in
             self?.restart(force: true)
         }))
         
-        alert.addAction(UIAlertAction(title: "Leave", style: .destructive , handler: { [weak self] _ in
-            self?.leaveScreen(force: true)
-        }))
-        
         self.present(alert, animated: true)
-    }
-    
-    func rematch() {
-        
     }
 }

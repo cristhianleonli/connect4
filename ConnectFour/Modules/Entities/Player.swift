@@ -28,6 +28,15 @@ struct Player {
                 return Colors.yellowTile
             }
         }
+        
+        // TODO: Localize
+        
+        var displayName: String {
+            switch self {
+            case .red: return "Red"
+            case .yellow: return "Yellow"
+            }
+        }
     }
     
     var displayTileImage: UIImage {
