@@ -16,6 +16,10 @@ class GameViewController: UIViewController {
     @IBOutlet private weak var tilesContainer: UIStackView!
     @IBOutlet private weak var scoreView: ScoreView!
     
+    @IBOutlet private weak var homeButton: MainButton!
+    @IBOutlet private weak var restartButton: MainButton!
+    @IBOutlet private weak var clearButton: MainButton!
+    
     // MARK: Properties
     
     var viewModel: GameViewModel!
@@ -38,25 +42,29 @@ class GameViewController: UIViewController {
 }
 
 private extension GameViewController {
-    @IBAction
-    func navigateBack(_ sender: UIButton) {
-        let alert = UIAlertController(title: viewModel.pauseAlertTitle, message: nil, preferredStyle: .actionSheet)
-        
-        alert.addAction(UIAlertAction(title: viewModel.resumeAction, style: .default , handler:{ (UIAlertAction)in
-        }))
-        
-        alert.addAction(UIAlertAction(title: viewModel.mainMenuAction, style: .default , handler:{ (UIAlertAction)in
+    func navigateBack() {
+        if viewModel.hasMadeMoves {
+            let alert = UIAlertController(
+                title: viewModel.leaveAlertTitle,
+                message: viewModel.leaveAlertSubtitle,
+                preferredStyle:  .alert
+            )
+            
+            alert.addAction(UIAlertAction(title: viewModel.cancelAction, style: .default , handler: { (UIAlertAction) in
+            }))
+            
+            alert.addAction(UIAlertAction(title: viewModel.leaveAction, style: .destructive , handler: { [weak self] (UIAlertAction)  in
+                self?.viewModel.navigateBack()
+            }))
+            
+            self.present(alert, animated: true)
+        } else {
             self.viewModel.navigateBack()
-        }))
-        
-        alert.addAction(UIAlertAction(title: viewModel.restartAction, style: .destructive , handler:{ (UIAlertAction)in
-            self.reset()
-        }))
-        
-        self.present(alert, animated: true)
+        }
     }
     
     func setupUI() {
+        view.backgroundColor = Colors.gameBackground
         // no color, just the round corner container view
         boardContainer.clipsToBounds = true
         boardContainer.layer.cornerRadius = 15
@@ -69,6 +77,10 @@ private extension GameViewController {
         
         // score view, where names and points are displayed
         scoreView.setupUI()
+        
+        homeButton.setup(title: "Home", image: UIImage(named: "home")!, action: self.navigateBack)
+        restartButton.setup(title: "Restart", image: UIImage(named: "restart")!, action: self.restart)
+        clearButton.setup(title: "Clear", image: UIImage(named: "clear")!, action: self.deleteStoredData)
     }
     
     func extractBoardTiles() {
@@ -105,18 +117,17 @@ private extension GameViewController {
         viewModel.playerWantsToMove(column: Int.random(in: 0...6))
     }
     
-    @IBAction
-    func deleteScoresButtonTapped(_ sender: UIButton) {
+    func deleteStoredData() {
         let alert = UIAlertController(
             title: viewModel.deleteAlertTitle,
             message: viewModel.deleteAlertSubtitle,
             preferredStyle:  .alert
         )
         
-        alert.addAction(UIAlertAction(title: viewModel.cancelAction, style: .default , handler:{ (UIAlertAction)in
+        alert.addAction(UIAlertAction(title: viewModel.cancelAction, style: .default , handler: { (UIAlertAction)in
         }))
         
-        alert.addAction(UIAlertAction(title: viewModel.deleteAction, style: .destructive , handler:{ (UIAlertAction)in
+        alert.addAction(UIAlertAction(title: viewModel.deleteAction, style: .destructive , handler: { (UIAlertAction)in
             self.viewModel.deleteSavedData()
             self.refreshUI()
         }))
@@ -124,9 +135,27 @@ private extension GameViewController {
         self.present(alert, animated: true)
     }
     
-    func reset() {
-        viewModel.reset()
-        refreshUI()
+    func restart() {
+        if viewModel.hasMadeMoves {
+            let alert = UIAlertController(
+                title: viewModel.restartAlertTitle,
+                message: viewModel.leaveAlertSubtitle,
+                preferredStyle:  .alert
+            )
+            
+            alert.addAction(UIAlertAction(title: viewModel.cancelAction, style: .default , handler: { (UIAlertAction) in
+            }))
+            
+            alert.addAction(UIAlertAction(title: viewModel.restartAction, style: .destructive , handler: { [weak self] (UIAlertAction)  in
+                self?.viewModel.restart()
+                self?.refreshUI()
+            }))
+            
+            self.present(alert, animated: true)
+        } else {
+            self.viewModel.restart()
+            self.refreshUI()
+        }
     }
     
     func refreshUI() {

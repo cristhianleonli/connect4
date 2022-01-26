@@ -11,7 +11,7 @@ class MainViewController: UIViewController {
     
     // MARK: IBOutlets
     
-    @IBOutlet private var playButton: UIButton!
+    @IBOutlet private weak var playButton: UIButton!
     @IBOutlet private weak var subtitleLabel: UILabel!
     @IBOutlet private weak var titleLabel: UILabel!
     
@@ -69,17 +69,5 @@ private extension MainViewController {
         playButton.setTitle(viewModel.playButtonTitle, for: .normal)
         titleLabel.text = viewModel.titleLabel
         subtitleLabel.text = viewModel.subtitleLabel
-    }
-    
-    func createGradient() {
-        // Create a gradient layer.
-        let gradientLayer = CAGradientLayer()
-        
-        gradientLayer.frame = view.bounds
-        gradientLayer.colors = [Colors.gradientStart.cgColor, Colors.gradientEnd.cgColor]
-        gradientLayer.shouldRasterize = true
-        
-        // Apply the gradient to the backgroundGradientView.
-        view.layer.insertSublayer(gradientLayer, at: 0)
     }
 }

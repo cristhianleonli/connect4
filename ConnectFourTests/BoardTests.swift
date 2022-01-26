@@ -140,4 +140,30 @@ class BoardTests: XCTestCase {
         // Then
         XCTAssertFalse(board.isFull)
     }
+    
+    func test_IsEmpty_GivenDirtyMatrix_ShouldBeFalse() {
+        // Given
+        let width = 7
+        let height = 6
+        
+        let board: Board<Int> = Board(width: width, height: height)
+        
+        // When
+        board.addTile(value: 1, toColumn: 0)
+        
+        // Then
+        XCTAssertFalse(board.isEmpty)
+    }
+    
+    func test_IsEmpty_GivenEmptyMatrix_ShouldBeTrue() {
+        // Given
+        let width = 7
+        let height = 6
+        
+        // When
+        let board: Board<Int> = Board(width: width, height: height)
+        
+        // Then
+        XCTAssertTrue(board.isEmpty)
+    }
 }

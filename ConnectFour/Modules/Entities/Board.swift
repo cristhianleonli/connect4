@@ -69,6 +69,18 @@ class Board<T> {
         return matrix[0].count
     }
     
+    var isEmpty: Bool {
+        for column in matrix {
+            for item in column {
+                if item != nil {
+                    return false
+                }
+            }
+        }
+        
+        return true
+    }
+    
     func getItem(at index: VectorInt) -> T? {
         guard index.x >= 0, index.x < matrix.count else {
             return nil

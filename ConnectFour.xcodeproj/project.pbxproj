@@ -11,7 +11,6 @@
 		9F42B74E27A0058D0032C012 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F42B74D27A0058D0032C012 /* SceneDelegate.swift */; };
 		9F42B75027A0058D0032C012 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F42B74F27A0058D0032C012 /* MainViewController.swift */; };
 		9F42B75527A005900032C012 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F42B75427A005900032C012 /* Assets.xcassets */; };
-		9F42B76327A005900032C012 /* ConnectFourTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F42B76227A005900032C012 /* ConnectFourTests.swift */; };
 		9F42B77C27A008910032C012 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F42B77B27A008910032C012 /* Coordinator.swift */; };
 		9F42B77E27A008990032C012 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F42B77D27A008990032C012 /* AppCoordinator.swift */; };
 		9F42B78127A009E30032C012 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F42B78027A009E30032C012 /* MainCoordinator.swift */; };
@@ -40,13 +39,17 @@
 		9F9FC92C27A16AD8007EC5A6 /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9FC92B27A16AD8007EC5A6 /* ScoreView.swift */; };
 		9F9FC92F27A17CDD007EC5A6 /* ScoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9FC92E27A17CDD007EC5A6 /* ScoreViewModel.swift */; };
 		9F9FC93127A18492007EC5A6 /* GameConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9FC93027A18492007EC5A6 /* GameConfiguration.swift */; };
-		9F9FC93327A186D1007EC5A6 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9FC93227A186D1007EC5A6 /* UserDefaultsManager.swift */; };
+		9F9FC93327A186D1007EC5A6 /* UserDefaultsScoreStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9FC93227A186D1007EC5A6 /* UserDefaultsScoreStorage.swift */; };
 		9F9FC93527A18A6D007EC5A6 /* GameConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9FC93427A18A6C007EC5A6 /* GameConfigurationTests.swift */; };
 		9F9FC93727A18BE5007EC5A6 /* PlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9FC93627A18BE5007EC5A6 /* PlayerTests.swift */; };
 		9F9FC93B27A19F81007EC5A6 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9FC93A27A19F81007EC5A6 /* Fonts.swift */; };
 		9F9FC93D27A1A111007EC5A6 /* AvertaPE-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9F9FC93C27A1A111007EC5A6 /* AvertaPE-Regular.otf */; };
 		9F9FC93F27A1A155007EC5A6 /* AvertaPE-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9F9FC93E27A1A155007EC5A6 /* AvertaPE-Semibold.otf */; };
 		9F9FC94127A1AD72007EC5A6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9F9FC94027A1AD72007EC5A6 /* README.md */; };
+		9F9FC94327A1B40E007EC5A6 /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9FC94227A1B40E007EC5A6 /* MainButton.swift */; };
+		9F9FC94527A1B415007EC5A6 /* MainButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F9FC94427A1B415007EC5A6 /* MainButton.xib */; };
+		9F9FC94827A1C95A007EC5A6 /* ScoreViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9FC94727A1C95A007EC5A6 /* ScoreViewModelTests.swift */; };
+		9F9FC94B27A1CCD3007EC5A6 /* ScoreStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9FC94A27A1CCD3007EC5A6 /* ScoreStorage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,7 +70,6 @@
 		9F42B75427A005900032C012 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9F42B75927A005900032C012 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F42B75E27A005900032C012 /* ConnectFourTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConnectFourTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9F42B76227A005900032C012 /* ConnectFourTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectFourTests.swift; sourceTree = "<group>"; };
 		9F42B77B27A008910032C012 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		9F42B77D27A008990032C012 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		9F42B78027A009E30032C012 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
@@ -96,13 +98,17 @@
 		9F9FC92B27A16AD8007EC5A6 /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 		9F9FC92E27A17CDD007EC5A6 /* ScoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewModel.swift; sourceTree = "<group>"; };
 		9F9FC93027A18492007EC5A6 /* GameConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameConfiguration.swift; sourceTree = "<group>"; };
-		9F9FC93227A186D1007EC5A6 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		9F9FC93227A186D1007EC5A6 /* UserDefaultsScoreStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsScoreStorage.swift; sourceTree = "<group>"; };
 		9F9FC93427A18A6C007EC5A6 /* GameConfigurationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameConfigurationTests.swift; sourceTree = "<group>"; };
 		9F9FC93627A18BE5007EC5A6 /* PlayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTests.swift; sourceTree = "<group>"; };
 		9F9FC93A27A19F81007EC5A6 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		9F9FC93C27A1A111007EC5A6 /* AvertaPE-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvertaPE-Regular.otf"; sourceTree = "<group>"; };
 		9F9FC93E27A1A155007EC5A6 /* AvertaPE-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvertaPE-Semibold.otf"; sourceTree = "<group>"; };
 		9F9FC94027A1AD72007EC5A6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		9F9FC94227A1B40E007EC5A6 /* MainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
+		9F9FC94427A1B415007EC5A6 /* MainButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainButton.xib; sourceTree = "<group>"; };
+		9F9FC94727A1C95A007EC5A6 /* ScoreViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewModelTests.swift; sourceTree = "<group>"; };
+		9F9FC94A27A1CCD3007EC5A6 /* ScoreStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreStorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,10 +162,10 @@
 		9F42B76127A005900032C012 /* ConnectFourTests */ = {
 			isa = PBXGroup;
 			children = (
-				9F42B76227A005900032C012 /* ConnectFourTests.swift */,
 				9F9FC92727A0DE85007EC5A6 /* BoardTests.swift */,
-				9F9FC93427A18A6C007EC5A6 /* GameConfigurationTests.swift */,
 				9F9FC93627A18BE5007EC5A6 /* PlayerTests.swift */,
+				9F9FC93427A18A6C007EC5A6 /* GameConfigurationTests.swift */,
+				9F9FC94727A1C95A007EC5A6 /* ScoreViewModelTests.swift */,
 			);
 			path = ConnectFourTests;
 			sourceTree = "<group>";
@@ -218,7 +224,6 @@
 				9F42B77B27A008910032C012 /* Coordinator.swift */,
 				9F42B79D27A01AE80032C012 /* Storyboard+App.swift */,
 				9F42B78827A00FCE0032C012 /* Reusable+Storyboard.swift */,
-				9F9FC93227A186D1007EC5A6 /* UserDefaultsManager.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -234,6 +239,8 @@
 				9F42B7A927A032740032C012 /* SpotView.swift */,
 				9F9FC91A27A075F8007EC5A6 /* TileView.swift */,
 				9F9FC92D27A17CCC007EC5A6 /* ScoreView */,
+				9F9FC94627A1B419007EC5A6 /* MainButton */,
+				9F9FC94927A1CCC9007EC5A6 /* ScoreStorage */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -274,6 +281,24 @@
 				9F9FC92E27A17CDD007EC5A6 /* ScoreViewModel.swift */,
 			);
 			path = ScoreView;
+			sourceTree = "<group>";
+		};
+		9F9FC94627A1B419007EC5A6 /* MainButton */ = {
+			isa = PBXGroup;
+			children = (
+				9F9FC94427A1B415007EC5A6 /* MainButton.xib */,
+				9F9FC94227A1B40E007EC5A6 /* MainButton.swift */,
+			);
+			path = MainButton;
+			sourceTree = "<group>";
+		};
+		9F9FC94927A1CCC9007EC5A6 /* ScoreStorage */ = {
+			isa = PBXGroup;
+			children = (
+				9F9FC94A27A1CCD3007EC5A6 /* ScoreStorage.swift */,
+				9F9FC93227A186D1007EC5A6 /* UserDefaultsScoreStorage.swift */,
+			);
+			path = ScoreStorage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -361,6 +386,7 @@
 				9F42B79727A012FF0032C012 /* LaunchScreen.storyboard in Resources */,
 				9F9FC93D27A1A111007EC5A6 /* AvertaPE-Regular.otf in Resources */,
 				9F9FC92A27A16AD0007EC5A6 /* ScoreView.xib in Resources */,
+				9F9FC94527A1B415007EC5A6 /* MainButton.xib in Resources */,
 				9F42B79127A012CF0032C012 /* Localizable.strings in Resources */,
 				9F42B75527A005900032C012 /* Assets.xcassets in Resources */,
 				9F9FC94127A1AD72007EC5A6 /* README.md in Resources */,
@@ -391,6 +417,7 @@
 				9F9FC91B27A075F8007EC5A6 /* TileView.swift in Sources */,
 				9F42B78127A009E30032C012 /* MainCoordinator.swift in Sources */,
 				9F42B75027A0058D0032C012 /* MainViewController.swift in Sources */,
+				9F9FC94B27A1CCD3007EC5A6 /* ScoreStorage.swift in Sources */,
 				9F42B77E27A008990032C012 /* AppCoordinator.swift in Sources */,
 				9F9FC91F27A0D3F3007EC5A6 /* Player.swift in Sources */,
 				9F42B7A027A01BE50032C012 /* GameViewController.swift in Sources */,
@@ -399,7 +426,8 @@
 				9F42B78B27A0110D0032C012 /* Reusable.swift in Sources */,
 				9F42B74C27A0058D0032C012 /* AppDelegate.swift in Sources */,
 				9F9FC92F27A17CDD007EC5A6 /* ScoreViewModel.swift in Sources */,
-				9F9FC93327A186D1007EC5A6 /* UserDefaultsManager.swift in Sources */,
+				9F9FC94327A1B40E007EC5A6 /* MainButton.swift in Sources */,
+				9F9FC93327A186D1007EC5A6 /* UserDefaultsScoreStorage.swift in Sources */,
 				9F42B7AA27A032740032C012 /* SpotView.swift in Sources */,
 				9F42B79E27A01AE80032C012 /* Storyboard+App.swift in Sources */,
 				9F9FC93127A18492007EC5A6 /* GameConfiguration.swift in Sources */,
@@ -420,7 +448,7 @@
 				9F9FC93727A18BE5007EC5A6 /* PlayerTests.swift in Sources */,
 				9F9FC92827A0DE85007EC5A6 /* BoardTests.swift in Sources */,
 				9F9FC93527A18A6D007EC5A6 /* GameConfigurationTests.swift in Sources */,
-				9F42B76327A005900032C012 /* ConnectFourTests.swift in Sources */,
+				9F9FC94827A1C95A007EC5A6 /* ScoreViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

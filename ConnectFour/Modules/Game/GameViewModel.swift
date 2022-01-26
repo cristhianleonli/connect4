@@ -86,7 +86,7 @@ extension GameViewModel {
         }
     }
     
-    func reset() {
+    func restart() {
         self.board = Board(width: gameConfig.boardWidth, height: gameConfig.boardHeight)
     }
     
@@ -97,12 +97,15 @@ extension GameViewModel {
     var scoreViewModel: ScoreViewModel {
         return ScoreViewModel(
             leftScore: "\(container.scoreStorage.youScore)",
-            leftImage: youPlayer.displayTileImage,
-            leftName: youPlayer.name,
             rightScore: "\(container.scoreStorage.otherScore)",
-            rightImage: otherPlayer.displayTileImage,
-            rightName: otherPlayer.name
+            leftPlayer: youPlayer,
+            rightPlayer: otherPlayer,
+            turn: currentPlayer == youPlayer ? .left : .right
         )
+    }
+    
+    var hasMadeMoves: Bool {
+        return board.isEmpty == false
     }
     
     var deleteAlertTitle: String {
@@ -122,27 +125,37 @@ extension GameViewModel {
     
     var deleteAction: String {
         // TODO: Localize
-        return "Delete"
-    }
-    
-    var pauseAlertTitle: String {
-        // TODO: Localize
-        return "What would you like to do?"
-    }
-    
-    var resumeAction: String {
-        // TODO: Localize
-        return "Resume"
+        return "Clear data"
     }
     
     var mainMenuAction: String {
         // TODO: Localize
-        return "Main menu"
+        return "Home"
     }
     
     var restartAction: String {
         // TODO: Localize
         return "Restart"
+    }
+    
+    var leaveAlertTitle: String {
+        // TODO: Localize
+        return "You are about to leave."
+    }
+    
+    var restartAlertTitle: String {
+        // TODO: Localize
+        return "You are about to restart."
+    }
+    
+    var leaveAlertSubtitle: String {
+        // TODO: Localize
+        return "The progress of this game will be lost. What would you like to do?"
+    }
+    
+    var leaveAction: String {
+        // TODO: Localize
+        return "Leave"
     }
 }
 

@@ -19,6 +19,9 @@ class ScoreView: UIView {
     @IBOutlet private weak var leftImageView: UIImageView!
     @IBOutlet private weak var leftNameLabel: UILabel!
     
+    @IBOutlet private weak var leftIndicator: UIView!
+    @IBOutlet private weak var rightIndicator: UIView!
+    
     // MARK: Properties
     
     private var contentView: UIView?
@@ -33,6 +36,13 @@ class ScoreView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        leftIndicator.layer.cornerRadius = leftIndicator.frame.height / 2
+        rightIndicator.layer.cornerRadius = rightIndicator.frame.height / 2
     }
 }
 
@@ -60,12 +70,19 @@ extension ScoreView {
     }
     
     func updateUI(model: ScoreViewModel) {
-        scoreLabel.text = "\(model.leftScore):\(model.rightScore)"
+        scoreLabel.text = model.score
         
         leftNameLabel.text = model.leftName
         leftImageView.image = model.leftImage
         
         rightNameLabel.text = model.rightName
         rightImageView.image = model.rightImage
+        
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn) {
+            self.leftIndicator.backgroundColor = model.leftIndicatorColor
+            self.rightIndicator.backgroundColor = model.rightIndicatorColor
+        } completion: { _ in
+            
+        }
     }
 }

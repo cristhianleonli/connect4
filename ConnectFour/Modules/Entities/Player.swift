@@ -22,8 +22,10 @@ struct Player {
         
         var uiColor: UIColor {
             switch self {
-            case .red: return Colors.redTile
-            case .yellow: return Colors.yellowTile
+            case .red:
+                return Colors.redTile
+            case .yellow:
+                return Colors.yellowTile
             }
         }
     }
