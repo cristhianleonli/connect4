@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,17 +12,369 @@
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController storyboardIdentifier="GameViewController" id="Y6W-OH-hqX" customClass="GameViewController" customModule="ConnectFour" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2Mg-h3-LBP"/>
+                        <viewControllerLayoutGuide type="bottom" id="AZK-PU-d4R"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_logo_dark" translatesAutoresizingMaskIntoConstraints="NO" id="bda-Sn-asE">
+                                <rect key="frame" x="107" y="54" width="200" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Jd5-Di-319"/>
+                                    <constraint firstAttribute="width" constant="200" id="kV0-8F-WYI"/>
+                                </constraints>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Fu-Xk-PDq">
-                                <rect key="frame" x="15" y="283.5" width="384" height="329"/>
+                                <rect key="frame" x="15" y="184" width="384" height="329"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Wv-y5-lLg">
                                         <rect key="frame" x="0.0" y="0.0" width="384" height="329"/>
                                         <color key="backgroundColor" systemColor="systemBrownColor"/>
                                     </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vON-Tt-a1o" userLabel="Tiles Container">
+                                        <rect key="frame" x="0.0" y="0.0" width="384" height="329"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="gde-Ub-YbD">
+                                                <rect key="frame" x="0.0" y="0.0" width="55" height="329"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o2E-JD-mX7" customClass="TileView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="55" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="o2E-JD-mX7" secondAttribute="height" multiplier="1:1" id="B1z-NK-nOx"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="37J-CU-Uvz" customClass="TileView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="55" width="55" height="54.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="37J-CU-Uvz" secondAttribute="height" multiplier="1:1" id="ZT8-5w-IxL"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JuK-Aq-3QM" customClass="TileView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="109.5" width="55" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="JuK-Aq-3QM" secondAttribute="height" multiplier="1:1" id="dxz-ky-wEa"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Hj-b1-xUz" customClass="TileView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="164.5" width="55" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="4Hj-b1-xUz" secondAttribute="height" multiplier="1:1" id="r4H-Ps-9BZ"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ars-pJ-bYZ" customClass="TileView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="219.5" width="55" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="ars-pJ-bYZ" secondAttribute="height" multiplier="1:1" id="5oN-jR-VJx"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EiI-S3-zhw" customClass="TileView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="274.5" width="55" height="54.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="EiI-S3-zhw" secondAttribute="height" multiplier="1:1" id="zAv-bO-qnI"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="37J-CU-Uvz" firstAttribute="width" secondItem="37J-CU-Uvz" secondAttribute="height" multiplier="1:1" id="DGQ-8z-QeU"/>
+                                                    <constraint firstItem="4Hj-b1-xUz" firstAttribute="width" secondItem="4Hj-b1-xUz" secondAttribute="height" multiplier="1:1" id="bta-fN-adO"/>
+                                                    <constraint firstItem="ars-pJ-bYZ" firstAttribute="width" secondItem="ars-pJ-bYZ" secondAttribute="height" multiplier="1:1" id="epw-ot-JhT"/>
+                                                    <constraint firstItem="JuK-Aq-3QM" firstAttribute="width" secondItem="JuK-Aq-3QM" secondAttribute="height" multiplier="1:1" id="gLt-rp-Y7U"/>
+                                                    <constraint firstItem="EiI-S3-zhw" firstAttribute="width" secondItem="EiI-S3-zhw" secondAttribute="height" multiplier="1:1" id="vM1-6n-Tes"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="q8F-dS-0gF">
+                                                <rect key="frame" x="55" y="0.0" width="54.5" height="329"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Lz-YE-JSs" customClass="TileView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="54.5" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="3Lz-YE-JSs" secondAttribute="height" multiplier="1:1" id="UX5-8V-exD"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YKP-ir-wyA" customClass="TileView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="55" width="54.5" height="54.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="YKP-ir-wyA" secondAttribute="height" multiplier="1:1" id="BYt-J8-ab2"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XtK-eZ-OZo" customClass="TileView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="109.5" width="54.5" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="XtK-eZ-OZo" secondAttribute="height" multiplier="1:1" id="rs7-j5-ORY"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fvx-TM-J3z" customClass="TileView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="164.5" width="54.5" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="Fvx-TM-J3z" secondAttribute="height" multiplier="1:1" id="WQV-Hh-yNr"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6V1-Py-6o9" customClass="TileView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="219.5" width="54.5" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="6V1-Py-6o9" secondAttribute="height" multiplier="1:1" id="uB6-qc-iDa"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7x9-yQ-hkd" customClass="TileView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="274.5" width="54.5" height="54.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="7x9-yQ-hkd" secondAttribute="height" multiplier="1:1" id="CxQ-7U-pr6"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="YKP-ir-wyA" firstAttribute="width" secondItem="YKP-ir-wyA" secondAttribute="height" multiplier="1:1" id="4vH-7H-CR5"/>
+                                                    <constraint firstItem="Fvx-TM-J3z" firstAttribute="width" secondItem="Fvx-TM-J3z" secondAttribute="height" multiplier="1:1" id="Vx4-UZ-3h5"/>
+                                                    <constraint firstItem="XtK-eZ-OZo" firstAttribute="width" secondItem="XtK-eZ-OZo" secondAttribute="height" multiplier="1:1" id="lt1-vl-K7X"/>
+                                                    <constraint firstItem="6V1-Py-6o9" firstAttribute="width" secondItem="6V1-Py-6o9" secondAttribute="height" multiplier="1:1" id="ulJ-3L-pEL"/>
+                                                    <constraint firstItem="7x9-yQ-hkd" firstAttribute="width" secondItem="7x9-yQ-hkd" secondAttribute="height" multiplier="1:1" id="xi0-aC-teb"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Wmt-Pp-Rio">
+                                                <rect key="frame" x="109.5" y="0.0" width="55" height="329"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QZT-lt-7R1" customClass="TileView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="55" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="QZT-lt-7R1" secondAttribute="height" multiplier="1:1" id="cyI-mM-JrK"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4YS-Qa-CKA" customClass="TileView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="55" width="55" height="54.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="4YS-Qa-CKA" secondAttribute="height" multiplier="1:1" id="2Aa-gB-GrG"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NxM-Er-u4I" customClass="TileView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="109.5" width="55" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="NxM-Er-u4I" secondAttribute="height" multiplier="1:1" id="G46-Na-Cbx"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U1l-p9-QFK" customClass="TileView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="164.5" width="55" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="U1l-p9-QFK" secondAttribute="height" multiplier="1:1" id="5hk-kW-1PN"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yux-bc-Adg" customClass="TileView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="219.5" width="55" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="Yux-bc-Adg" secondAttribute="height" multiplier="1:1" id="8ol-hM-eep"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kL4-hT-HQ7" customClass="TileView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="274.5" width="55" height="54.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="kL4-hT-HQ7" secondAttribute="height" multiplier="1:1" id="giu-I6-bvu"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="kL4-hT-HQ7" firstAttribute="width" secondItem="kL4-hT-HQ7" secondAttribute="height" multiplier="1:1" id="5Ku-3G-FjD"/>
+                                                    <constraint firstItem="NxM-Er-u4I" firstAttribute="width" secondItem="NxM-Er-u4I" secondAttribute="height" multiplier="1:1" id="7x2-j3-bHm"/>
+                                                    <constraint firstItem="Yux-bc-Adg" firstAttribute="width" secondItem="Yux-bc-Adg" secondAttribute="height" multiplier="1:1" id="OXF-1j-Eoo"/>
+                                                    <constraint firstItem="U1l-p9-QFK" firstAttribute="width" secondItem="U1l-p9-QFK" secondAttribute="height" multiplier="1:1" id="gy4-qZ-U5s"/>
+                                                    <constraint firstItem="4YS-Qa-CKA" firstAttribute="width" secondItem="4YS-Qa-CKA" secondAttribute="height" multiplier="1:1" id="q3x-Rb-7Vl"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="KOz-4Q-JAI">
+                                                <rect key="frame" x="164.5" y="0.0" width="55" height="329"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zxc-J0-6OI" customClass="TileView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="55" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="zxc-J0-6OI" secondAttribute="height" multiplier="1:1" id="5EH-YN-VFz"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TvQ-p4-Fgi" customClass="TileView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="55" width="55" height="54.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="TvQ-p4-Fgi" secondAttribute="height" multiplier="1:1" id="umj-UP-ToY"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wc9-3U-LMj" customClass="TileView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="109.5" width="55" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="Wc9-3U-LMj" secondAttribute="height" multiplier="1:1" id="1Uw-uw-JXq"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h1q-04-erl" customClass="TileView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="164.5" width="55" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="h1q-04-erl" secondAttribute="height" multiplier="1:1" id="O0F-Ah-SW0"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VAH-Tn-bFM" customClass="TileView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="219.5" width="55" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="VAH-Tn-bFM" secondAttribute="height" multiplier="1:1" id="Bkv-Fq-7qN"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aVm-Zj-8I4" customClass="TileView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="274.5" width="55" height="54.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="aVm-Zj-8I4" secondAttribute="height" multiplier="1:1" id="o7B-IH-Afy"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="VAH-Tn-bFM" firstAttribute="width" secondItem="VAH-Tn-bFM" secondAttribute="height" multiplier="1:1" id="4Vx-gg-Ehc"/>
+                                                    <constraint firstItem="aVm-Zj-8I4" firstAttribute="width" secondItem="aVm-Zj-8I4" secondAttribute="height" multiplier="1:1" id="DFD-eu-tDI"/>
+                                                    <constraint firstItem="Wc9-3U-LMj" firstAttribute="width" secondItem="Wc9-3U-LMj" secondAttribute="height" multiplier="1:1" id="WAb-WX-ZTg"/>
+                                                    <constraint firstItem="TvQ-p4-Fgi" firstAttribute="width" secondItem="TvQ-p4-Fgi" secondAttribute="height" multiplier="1:1" id="s4q-bE-wRU"/>
+                                                    <constraint firstItem="h1q-04-erl" firstAttribute="width" secondItem="h1q-04-erl" secondAttribute="height" multiplier="1:1" id="wed-5i-KnZ"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="zS4-69-e57">
+                                                <rect key="frame" x="219.5" y="0.0" width="55" height="329"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Gd-57-Ib5" customClass="TileView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="55" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="0Gd-57-Ib5" secondAttribute="height" multiplier="1:1" id="3YL-gy-9OM"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0rN-5o-lg2" customClass="TileView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="55" width="55" height="54.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="0rN-5o-lg2" secondAttribute="height" multiplier="1:1" id="ybP-pl-rJw"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="thd-qU-Ieu" customClass="TileView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="109.5" width="55" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="thd-qU-Ieu" secondAttribute="height" multiplier="1:1" id="1jj-Yu-yH8"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IMt-9Y-Ih6" customClass="TileView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="164.5" width="55" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="IMt-9Y-Ih6" secondAttribute="height" multiplier="1:1" id="Qmr-4Y-9iB"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dZF-gl-e3i" customClass="TileView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="219.5" width="55" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="dZF-gl-e3i" secondAttribute="height" multiplier="1:1" id="osh-hL-098"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Opy-Sf-P3q" customClass="TileView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="274.5" width="55" height="54.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="Opy-Sf-P3q" secondAttribute="height" multiplier="1:1" id="4Sx-4k-wm5"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="Opy-Sf-P3q" firstAttribute="width" secondItem="Opy-Sf-P3q" secondAttribute="height" multiplier="1:1" id="0gJ-Ys-gVn"/>
+                                                    <constraint firstItem="0rN-5o-lg2" firstAttribute="width" secondItem="0rN-5o-lg2" secondAttribute="height" multiplier="1:1" id="An0-yr-Yg3"/>
+                                                    <constraint firstItem="dZF-gl-e3i" firstAttribute="width" secondItem="dZF-gl-e3i" secondAttribute="height" multiplier="1:1" id="C0W-Pt-K44"/>
+                                                    <constraint firstItem="IMt-9Y-Ih6" firstAttribute="width" secondItem="IMt-9Y-Ih6" secondAttribute="height" multiplier="1:1" id="Iao-z5-KNg"/>
+                                                    <constraint firstItem="thd-qU-Ieu" firstAttribute="width" secondItem="thd-qU-Ieu" secondAttribute="height" multiplier="1:1" id="vHL-s1-9xo"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="2yT-Hf-c5V">
+                                                <rect key="frame" x="274.5" y="0.0" width="54.5" height="329"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NS6-tX-JfC" customClass="TileView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="54.5" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="NS6-tX-JfC" secondAttribute="height" multiplier="1:1" id="hOx-Ew-Cie"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C6c-kN-pQJ" customClass="TileView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="55" width="54.5" height="54.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="C6c-kN-pQJ" secondAttribute="height" multiplier="1:1" id="Mo1-Kv-hUv"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hgt-nD-mpB" customClass="TileView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="109.5" width="54.5" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="Hgt-nD-mpB" secondAttribute="height" multiplier="1:1" id="YNv-DM-L85"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RUS-gx-74T" customClass="TileView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="164.5" width="54.5" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="RUS-gx-74T" secondAttribute="height" multiplier="1:1" id="iG3-Rj-SHX"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lnv-xX-TnE" customClass="TileView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="219.5" width="54.5" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="Lnv-xX-TnE" secondAttribute="height" multiplier="1:1" id="CsF-Kg-Qsr"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5rV-s1-iqx" customClass="TileView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="274.5" width="54.5" height="54.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="5rV-s1-iqx" secondAttribute="height" multiplier="1:1" id="CIG-37-e2K"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="Hgt-nD-mpB" firstAttribute="width" secondItem="Hgt-nD-mpB" secondAttribute="height" multiplier="1:1" id="D6p-Xe-RCH"/>
+                                                    <constraint firstItem="Lnv-xX-TnE" firstAttribute="width" secondItem="Lnv-xX-TnE" secondAttribute="height" multiplier="1:1" id="Gcx-FS-XXk"/>
+                                                    <constraint firstItem="RUS-gx-74T" firstAttribute="width" secondItem="RUS-gx-74T" secondAttribute="height" multiplier="1:1" id="KQX-jQ-Wws"/>
+                                                    <constraint firstItem="5rV-s1-iqx" firstAttribute="width" secondItem="5rV-s1-iqx" secondAttribute="height" multiplier="1:1" id="sx1-fJ-n26"/>
+                                                    <constraint firstItem="C6c-kN-pQJ" firstAttribute="width" secondItem="C6c-kN-pQJ" secondAttribute="height" multiplier="1:1" id="yej-2A-BQJ"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="43d-5d-oc2">
+                                                <rect key="frame" x="329" y="0.0" width="55" height="329"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZAG-p9-Xpp" customClass="TileView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="55" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="ZAG-p9-Xpp" secondAttribute="height" multiplier="1:1" id="vB4-3z-7O3"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0k2-Vo-GlB" customClass="TileView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="55" width="55" height="54.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="0k2-Vo-GlB" secondAttribute="height" multiplier="1:1" id="8P5-Y2-LbJ"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xkl-Ry-xdN" customClass="TileView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="109.5" width="55" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="xkl-Ry-xdN" secondAttribute="height" multiplier="1:1" id="NcY-qn-sS2"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bAG-wi-Syq" customClass="TileView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="164.5" width="55" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="bAG-wi-Syq" secondAttribute="height" multiplier="1:1" id="s8d-K9-9f8"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q5d-mK-NuR" customClass="TileView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="219.5" width="55" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="Q5d-mK-NuR" secondAttribute="height" multiplier="1:1" id="PYx-R1-kdO"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hau-LM-hRA" customClass="TileView" customModule="ConnectFour" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="274.5" width="55" height="54.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="hau-LM-hRA" secondAttribute="height" multiplier="1:1" id="mnY-ea-46U"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="hau-LM-hRA" firstAttribute="width" secondItem="hau-LM-hRA" secondAttribute="height" multiplier="1:1" id="9XG-XV-baC"/>
+                                                    <constraint firstItem="0k2-Vo-GlB" firstAttribute="width" secondItem="0k2-Vo-GlB" secondAttribute="height" multiplier="1:1" id="Afw-dY-fsk"/>
+                                                    <constraint firstItem="bAG-wi-Syq" firstAttribute="width" secondItem="bAG-wi-Syq" secondAttribute="height" multiplier="1:1" id="TcO-v5-d5H"/>
+                                                    <constraint firstItem="Q5d-mK-NuR" firstAttribute="width" secondItem="Q5d-mK-NuR" secondAttribute="height" multiplier="1:1" id="YKU-z7-Qbg"/>
+                                                    <constraint firstItem="xkl-Ry-xdN" firstAttribute="width" secondItem="xkl-Ry-xdN" secondAttribute="height" multiplier="1:1" id="vSN-i3-Y6e"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="zTj-BT-QiX" userLabel="Tile Holes">
                                         <rect key="frame" x="0.0" y="0.0" width="384" height="329"/>
                                         <subviews>
@@ -252,46 +603,46 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="aQX-WB-gnA">
-                                                <rect key="frame" x="0.0" y="219.5" width="384" height="54.5"/>
+                                                <rect key="frame" x="0.0" y="219.5" width="384" height="55"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ziW-Yr-vBt" customClass="SpotView" customModule="ConnectFour" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="55" height="54.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="55" height="55"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="ziW-Yr-vBt" secondAttribute="height" multiplier="1:1" id="igy-K3-IZZ"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k7a-8u-ifQ" customClass="SpotView" customModule="ConnectFour" customModuleProvider="target">
-                                                        <rect key="frame" x="55" y="0.0" width="54.5" height="54.5"/>
+                                                        <rect key="frame" x="55" y="0.0" width="54.5" height="55"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="k7a-8u-ifQ" secondAttribute="height" multiplier="1:1" id="zPe-nu-WBq"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8AS-3o-giD" customClass="SpotView" customModule="ConnectFour" customModuleProvider="target">
-                                                        <rect key="frame" x="109.5" y="0.0" width="55" height="54.5"/>
+                                                        <rect key="frame" x="109.5" y="0.0" width="55" height="55"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="8AS-3o-giD" secondAttribute="height" multiplier="1:1" id="NMH-yj-SDn"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xnb-mE-BiD" customClass="SpotView" customModule="ConnectFour" customModuleProvider="target">
-                                                        <rect key="frame" x="164.5" y="0.0" width="55" height="54.5"/>
+                                                        <rect key="frame" x="164.5" y="0.0" width="55" height="55"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="Xnb-mE-BiD" secondAttribute="height" multiplier="1:1" id="20m-wU-vw4"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nLF-Mm-jaS" customClass="SpotView" customModule="ConnectFour" customModuleProvider="target">
-                                                        <rect key="frame" x="219.5" y="0.0" width="55" height="54.5"/>
+                                                        <rect key="frame" x="219.5" y="0.0" width="55" height="55"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="nLF-Mm-jaS" secondAttribute="height" multiplier="1:1" id="9uI-B9-Ecy"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pVU-ki-fbf" customClass="SpotView" customModule="ConnectFour" customModuleProvider="target">
-                                                        <rect key="frame" x="274.5" y="0.0" width="54.5" height="54.5"/>
+                                                        <rect key="frame" x="274.5" y="0.0" width="54.5" height="55"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="pVU-ki-fbf" secondAttribute="height" multiplier="1:1" id="yb2-5S-txB"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ugs-Zx-M8A" customClass="SpotView" customModule="ConnectFour" customModuleProvider="target">
-                                                        <rect key="frame" x="329" y="0.0" width="55" height="54.5"/>
+                                                        <rect key="frame" x="329" y="0.0" width="55" height="55"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="ugs-Zx-M8A" secondAttribute="height" multiplier="1:1" id="qMM-Xd-DGU"/>
                                                         </constraints>
@@ -308,46 +659,46 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="eI2-LK-Qb0">
-                                                <rect key="frame" x="0.0" y="274" width="384" height="55"/>
+                                                <rect key="frame" x="0.0" y="274.5" width="384" height="54.5"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qRj-qn-2rk" customClass="SpotView" customModule="ConnectFour" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="55" height="55"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="55" height="54.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="qRj-qn-2rk" secondAttribute="height" multiplier="1:1" id="5LO-Sy-wtD"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BDr-ZW-C38" customClass="SpotView" customModule="ConnectFour" customModuleProvider="target">
-                                                        <rect key="frame" x="55" y="0.0" width="54.5" height="55"/>
+                                                        <rect key="frame" x="55" y="0.0" width="54.5" height="54.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="BDr-ZW-C38" secondAttribute="height" multiplier="1:1" id="R3D-fr-49Y"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="abC-bh-ama" customClass="SpotView" customModule="ConnectFour" customModuleProvider="target">
-                                                        <rect key="frame" x="109.5" y="0.0" width="55" height="55"/>
+                                                        <rect key="frame" x="109.5" y="0.0" width="55" height="54.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="abC-bh-ama" secondAttribute="height" multiplier="1:1" id="RxC-tQ-mzl"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9jw-nC-mBU" customClass="SpotView" customModule="ConnectFour" customModuleProvider="target">
-                                                        <rect key="frame" x="164.5" y="0.0" width="55" height="55"/>
+                                                        <rect key="frame" x="164.5" y="0.0" width="55" height="54.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="9jw-nC-mBU" secondAttribute="height" multiplier="1:1" id="14F-Vm-grj"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EHO-Io-lBG" customClass="SpotView" customModule="ConnectFour" customModuleProvider="target">
-                                                        <rect key="frame" x="219.5" y="0.0" width="55" height="55"/>
+                                                        <rect key="frame" x="219.5" y="0.0" width="55" height="54.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="EHO-Io-lBG" secondAttribute="height" multiplier="1:1" id="7FV-58-pPY"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Idw-Ft-3mN" customClass="SpotView" customModule="ConnectFour" customModuleProvider="target">
-                                                        <rect key="frame" x="274.5" y="0.0" width="54.5" height="55"/>
+                                                        <rect key="frame" x="274.5" y="0.0" width="54.5" height="54.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="Idw-Ft-3mN" secondAttribute="height" multiplier="1:1" id="fci-xP-PtS"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xqL-tb-3cJ" customClass="SpotView" customModule="ConnectFour" customModuleProvider="target">
-                                                        <rect key="frame" x="329" y="0.0" width="55" height="55"/>
+                                                        <rect key="frame" x="329" y="0.0" width="55" height="54.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="xqL-tb-3cJ" secondAttribute="height" multiplier="1:1" id="yav-xE-UAk"/>
                                                         </constraints>
@@ -370,36 +721,81 @@
                                 <constraints>
                                     <constraint firstItem="zTj-BT-QiX" firstAttribute="top" secondItem="8Fu-Xk-PDq" secondAttribute="top" id="5R6-sb-J3g"/>
                                     <constraint firstItem="zTj-BT-QiX" firstAttribute="leading" secondItem="8Fu-Xk-PDq" secondAttribute="leading" id="B0j-6R-ENh"/>
+                                    <constraint firstAttribute="bottom" secondItem="vON-Tt-a1o" secondAttribute="bottom" id="Ccl-uh-FdP"/>
+                                    <constraint firstItem="vON-Tt-a1o" firstAttribute="top" secondItem="8Fu-Xk-PDq" secondAttribute="top" id="FiE-Le-h71"/>
+                                    <constraint firstItem="vON-Tt-a1o" firstAttribute="leading" secondItem="8Fu-Xk-PDq" secondAttribute="leading" id="OHm-nt-Hly"/>
                                     <constraint firstAttribute="trailing" secondItem="8Wv-y5-lLg" secondAttribute="trailing" id="XHk-aP-0Y6"/>
                                     <constraint firstAttribute="trailing" secondItem="zTj-BT-QiX" secondAttribute="trailing" id="Zx9-K3-lmH"/>
                                     <constraint firstItem="8Wv-y5-lLg" firstAttribute="top" secondItem="8Fu-Xk-PDq" secondAttribute="top" id="bJ4-dy-0iJ"/>
                                     <constraint firstAttribute="bottom" secondItem="zTj-BT-QiX" secondAttribute="bottom" id="idJ-cc-DSU"/>
                                     <constraint firstAttribute="bottom" secondItem="8Wv-y5-lLg" secondAttribute="bottom" id="rQd-FZ-qcL"/>
+                                    <constraint firstAttribute="trailing" secondItem="vON-Tt-a1o" secondAttribute="trailing" id="vX2-gb-oCx"/>
                                     <constraint firstItem="8Wv-y5-lLg" firstAttribute="leading" secondItem="8Fu-Xk-PDq" secondAttribute="leading" id="ybz-u5-m8E"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jUg-5c-eLL">
-                                <rect key="frame" x="20" y="64" width="39" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jUg-5c-eLL">
+                                <rect key="frame" x="15" y="64" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="Hiy-EP-2hO"/>
+                                    <constraint firstAttribute="height" constant="30" id="YuL-Ee-9ep"/>
+                                </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Menu"/>
+                                <state key="normal" image="align-center"/>
                                 <connections>
                                     <action selector="navigateBack:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="HrN-3d-RcL"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6yz-g4-kAP">
+                                <rect key="frame" x="369" y="64" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="p9f-QW-r8V"/>
+                                    <constraint firstAttribute="width" constant="30" id="yZ5-35-tAV"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="broom"/>
+                                <connections>
+                                    <action selector="deleteScoresButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="EL2-EA-ouB"/>
+                                    <action selector="navigateBack:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="SA4-8C-Urq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sqH-0c-Vvl">
+                                <rect key="frame" x="152" y="715" width="67" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="playerWantsToMove:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Zge-vI-nYt"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EQF-ag-NHv" customClass="ScoreView" customModule="ConnectFour" customModuleProvider="target">
+                                <rect key="frame" x="15" y="513" width="384" height="60"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Nfh-32-5d5"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="8Fu-Xk-PDq" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="15" id="Xwk-cx-BVW"/>
-                            <constraint firstItem="jUg-5c-eLL" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="ZgJ-x6-Soe"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="8Fu-Xk-PDq" secondAttribute="trailing" constant="15" id="h8Y-lw-Ap6"/>
-                            <constraint firstItem="jUg-5c-eLL" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="mZY-ZI-qW8"/>
-                            <constraint firstItem="8Fu-Xk-PDq" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="z8G-ug-HM9"/>
+                            <constraint firstItem="EQF-ag-NHv" firstAttribute="top" secondItem="8Fu-Xk-PDq" secondAttribute="bottom" id="30b-qO-xmZ"/>
+                            <constraint firstItem="EQF-ag-NHv" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="15" id="B30-5A-TDx"/>
+                            <constraint firstItem="bda-Sn-asE" firstAttribute="top" secondItem="2Mg-h3-LBP" secondAttribute="bottom" constant="10" id="QiX-te-ky9"/>
+                            <constraint firstItem="jUg-5c-eLL" firstAttribute="centerY" secondItem="bda-Sn-asE" secondAttribute="centerY" id="SZY-rv-vLF"/>
+                            <constraint firstItem="8Fu-Xk-PDq" firstAttribute="top" secondItem="bda-Sn-asE" secondAttribute="bottom" constant="80" id="UFs-Pi-g6R"/>
+                            <constraint firstItem="8Fu-Xk-PDq" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="15" id="Xwk-cx-BVW"/>
+                            <constraint firstAttribute="trailing" secondItem="EQF-ag-NHv" secondAttribute="trailing" constant="15" id="Xxb-cJ-oah"/>
+                            <constraint firstAttribute="trailing" secondItem="6yz-g4-kAP" secondAttribute="trailing" constant="15" id="d2v-Ct-QDy"/>
+                            <constraint firstItem="6yz-g4-kAP" firstAttribute="centerY" secondItem="bda-Sn-asE" secondAttribute="centerY" id="ek2-6a-Dpk"/>
+                            <constraint firstAttribute="trailing" secondItem="8Fu-Xk-PDq" secondAttribute="trailing" constant="15" id="h8Y-lw-Ap6"/>
+                            <constraint firstItem="bda-Sn-asE" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="k0y-pe-nvH"/>
+                            <constraint firstItem="jUg-5c-eLL" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="15" id="ugh-5U-DAR"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="boardContainer" destination="8Fu-Xk-PDq" id="FdN-BM-YA9"/>
                         <outlet property="boardInsideView" destination="8Wv-y5-lLg" id="CSB-98-dkx"/>
+                        <outlet property="scoreView" destination="EQF-ag-NHv" id="ZhY-dC-5X8"/>
+                        <outlet property="tilesContainer" destination="vON-Tt-a1o" id="2e2-Rn-5O0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -408,6 +804,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="align-center" width="512" height="512"/>
+        <image name="broom" width="512" height="512"/>
+        <image name="main_logo_dark" width="500" height="184"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

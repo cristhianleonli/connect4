@@ -27,4 +27,23 @@ extension MainViewModel {
     func showGameView(gameType: GameType) {
         coordinator.showGameView(gameType: gameType)
     }
+    
+    func showInfoView() {
+        coordinator.showInfoView()
+    }
+    
+    var playButtonTitle: String {
+        // TODO: Localize
+        return "Play"
+    }
+    
+    var titleLabel: String {
+        // TODO: Localize
+        return "Ready for some fun?"
+    }
+    
+    var subtitleLabel: String {
+        // TODO: Localize
+        return "This app is the 1st. monthly code challenge proposed by @MoureDev."
+    }
 }

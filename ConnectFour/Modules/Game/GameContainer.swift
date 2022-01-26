@@ -9,4 +9,8 @@ import Foundation
 
 struct GameContainer {
     
+    // MARK: Properties
+    
+    let scoreStorage: ScoreStorage
+    
 }

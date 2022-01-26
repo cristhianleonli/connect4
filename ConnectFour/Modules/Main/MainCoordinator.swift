@@ -22,10 +22,14 @@ final class MainCoordinator: Coordinator {
         let viewController: MainViewController = UIStoryboard.main.instantiateViewController()
         viewController.viewModel = viewModel
         
-        navigationController.pushViewController(viewController, animated: true)
+        navigationController.pushViewController(viewController, animated: false)
     }
     
     func showGameView(gameType: MainViewModel.GameType) {
         GameCoordinator(navigationController).start()
+    }
+    
+    func showInfoView() {
+        
     }
 }

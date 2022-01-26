@@ -17,6 +17,7 @@ extension Reusable {
     }
 }
 
+extension UIView: Reusable { }
 extension UICollectionViewCell: Reusable { }
 extension UITableViewCell: Reusable { }
 extension UIViewController: Reusable { }
