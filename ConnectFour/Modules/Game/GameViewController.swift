@@ -40,18 +40,17 @@ class GameViewController: UIViewController {
 private extension GameViewController {
     @IBAction
     func navigateBack(_ sender: UIButton) {
-        let alert = UIAlertController(title: "Title", message: "Please Select an Option", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: viewModel.pauseAlertTitle, message: nil, preferredStyle: .actionSheet)
         
-        alert.addAction(UIAlertAction(title: "Resume", style: .default , handler:{ (UIAlertAction)in
-            print("User click Approve button")
+        alert.addAction(UIAlertAction(title: viewModel.resumeAction, style: .default , handler:{ (UIAlertAction)in
         }))
         
-        alert.addAction(UIAlertAction(title: "Main Menu", style: .default , handler:{ (UIAlertAction)in
+        alert.addAction(UIAlertAction(title: viewModel.mainMenuAction, style: .default , handler:{ (UIAlertAction)in
             self.viewModel.navigateBack()
         }))
         
-        alert.addAction(UIAlertAction(title: "Restart", style: .destructive , handler:{ (UIAlertAction)in
-            print("User click Delete button")
+        alert.addAction(UIAlertAction(title: viewModel.restartAction, style: .destructive , handler:{ (UIAlertAction)in
+            self.reset()
         }))
         
         self.present(alert, animated: true)
@@ -94,7 +93,7 @@ private extension GameViewController {
                     self.viewModel.postMovingChecks()
                 }
             case .finished(let winner):
-                print("game has finished. Winner: \(winner?.id)")
+                print("game has finished. Winner: \(winner?.id ?? "no winner")")
             }
         }
         .store(in: &viewModel.cancellables)
@@ -108,18 +107,26 @@ private extension GameViewController {
     
     @IBAction
     func deleteScoresButtonTapped(_ sender: UIButton) {
-        let alert = UIAlertController(title: "Title", message: "Please Select an Option", preferredStyle:  .alert)
+        let alert = UIAlertController(
+            title: viewModel.deleteAlertTitle,
+            message: viewModel.deleteAlertSubtitle,
+            preferredStyle:  .alert
+        )
         
-        alert.addAction(UIAlertAction(title: "Cancel", style: .default , handler:{ (UIAlertAction)in
-            print("User click Approve button")
+        alert.addAction(UIAlertAction(title: viewModel.cancelAction, style: .default , handler:{ (UIAlertAction)in
         }))
         
-        alert.addAction(UIAlertAction(title: "Clear", style: .destructive , handler:{ (UIAlertAction)in
+        alert.addAction(UIAlertAction(title: viewModel.deleteAction, style: .destructive , handler:{ (UIAlertAction)in
             self.viewModel.deleteSavedData()
             self.refreshUI()
         }))
         
         self.present(alert, animated: true)
+    }
+    
+    func reset() {
+        viewModel.reset()
+        refreshUI()
     }
     
     func refreshUI() {

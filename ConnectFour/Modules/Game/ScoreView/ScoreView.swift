@@ -12,11 +12,10 @@ class ScoreView: UIView {
     
     // MARK: IBOutlets
     
-    @IBOutlet private weak var rightScoreLabel: UILabel!
+    @IBOutlet private weak var scoreLabel: UILabel!
     @IBOutlet private weak var rightImageView: UIImageView!
     @IBOutlet private weak var rightNameLabel: UILabel!
     
-    @IBOutlet private weak var leftScoreLabel: UILabel!
     @IBOutlet private weak var leftImageView: UIImageView!
     @IBOutlet private weak var leftNameLabel: UILabel!
     
@@ -54,15 +53,18 @@ private extension ScoreView {
 
 extension ScoreView {
     func setupUI() {
+        scoreLabel.font = Fonts.averta(weight: .semibold, size: 25)
         
+        rightNameLabel.font = Fonts.averta(weight: .semibold, size: 20)
+        leftNameLabel.font = Fonts.averta(weight: .semibold, size: 20)
     }
     
     func updateUI(model: ScoreViewModel) {
-        leftScoreLabel.text = model.leftScore
+        scoreLabel.text = "\(model.leftScore):\(model.rightScore)"
+        
         leftNameLabel.text = model.leftName
         leftImageView.image = model.leftImage
         
-        rightScoreLabel.text = model.rightScore
         rightNameLabel.text = model.rightName
         rightImageView.image = model.rightImage
     }

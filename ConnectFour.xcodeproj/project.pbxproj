@@ -46,6 +46,7 @@
 		9F9FC93B27A19F81007EC5A6 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9FC93A27A19F81007EC5A6 /* Fonts.swift */; };
 		9F9FC93D27A1A111007EC5A6 /* AvertaPE-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9F9FC93C27A1A111007EC5A6 /* AvertaPE-Regular.otf */; };
 		9F9FC93F27A1A155007EC5A6 /* AvertaPE-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9F9FC93E27A1A155007EC5A6 /* AvertaPE-Semibold.otf */; };
+		9F9FC94127A1AD72007EC5A6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9F9FC94027A1AD72007EC5A6 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +102,7 @@
 		9F9FC93A27A19F81007EC5A6 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		9F9FC93C27A1A111007EC5A6 /* AvertaPE-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvertaPE-Regular.otf"; sourceTree = "<group>"; };
 		9F9FC93E27A1A155007EC5A6 /* AvertaPE-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvertaPE-Semibold.otf"; sourceTree = "<group>"; };
+		9F9FC94027A1AD72007EC5A6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 		9F42B73F27A0058D0032C012 = {
 			isa = PBXGroup;
 			children = (
+				9F9FC94027A1AD72007EC5A6 /* README.md */,
 				9F42B74A27A0058D0032C012 /* ConnectFour */,
 				9F42B76127A005900032C012 /* ConnectFourTests */,
 				9F42B74927A0058D0032C012 /* Products */,
@@ -360,6 +363,7 @@
 				9F9FC92A27A16AD0007EC5A6 /* ScoreView.xib in Resources */,
 				9F42B79127A012CF0032C012 /* Localizable.strings in Resources */,
 				9F42B75527A005900032C012 /* Assets.xcassets in Resources */,
+				9F9FC94127A1AD72007EC5A6 /* README.md in Resources */,
 				9F42B79B27A0182A0032C012 /* Game.storyboard in Resources */,
 				9F42B79927A013D50032C012 /* Main.storyboard in Resources */,
 			);

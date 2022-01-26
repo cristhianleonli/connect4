@@ -13,6 +13,7 @@ class GameViewModel: ObservableObject {
     private let coordinator: GameCoordinator
     private let container: GameContainer
     private let gameMode: GameConfiguration.GameMode
+    private let gameConfig: GameConfiguration
     
     private let youPlayer: Player
     private let otherPlayer: Player
@@ -33,6 +34,7 @@ class GameViewModel: ObservableObject {
     init(coordinator: GameCoordinator, container: GameContainer, configuration: GameConfiguration) {
         self.coordinator = coordinator
         self.container = container
+        self.gameConfig = configuration
         
         // board initialization
         self.board = Board(width: configuration.boardWidth, height: configuration.boardHeight)
@@ -85,6 +87,7 @@ extension GameViewModel {
     }
     
     func reset() {
+        self.board = Board(width: gameConfig.boardWidth, height: gameConfig.boardHeight)
     }
     
     func deleteSavedData() {
@@ -100,6 +103,46 @@ extension GameViewModel {
             rightImage: otherPlayer.displayTileImage,
             rightName: otherPlayer.name
         )
+    }
+    
+    var deleteAlertTitle: String {
+        // TODO: Localize
+        return "Careful!"
+    }
+    
+    var deleteAlertSubtitle: String {
+        // TODO: Localize
+        return "This action deletes all stored data about previous games. What would you like to do?"
+    }
+    
+    var cancelAction: String {
+        // TODO: Localize
+        return "Cancel"
+    }
+    
+    var deleteAction: String {
+        // TODO: Localize
+        return "Delete"
+    }
+    
+    var pauseAlertTitle: String {
+        // TODO: Localize
+        return "What would you like to do?"
+    }
+    
+    var resumeAction: String {
+        // TODO: Localize
+        return "Resume"
+    }
+    
+    var mainMenuAction: String {
+        // TODO: Localize
+        return "Main menu"
+    }
+    
+    var restartAction: String {
+        // TODO: Localize
+        return "Restart"
     }
 }
 
