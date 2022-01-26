@@ -32,11 +32,9 @@ final class GameCoordinator: Coordinator {
         viewController.modalTransitionStyle = .crossDissolve
         
         navigationController.present(viewController, animated: true)
-//        navigationController.pushViewController(viewController, animated: true)
     }
     
     func navigateBack() {
-//        navigationController.popViewController(animated: true)
         navigationController.dismiss(animated: true)
     }
 }

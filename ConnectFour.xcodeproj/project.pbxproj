@@ -188,8 +188,7 @@
 				9F42B75427A005900032C012 /* Assets.xcassets */,
 				9F42B79327A012CF0032C012 /* Localizable.strings */,
 				9F42B79627A012FF0032C012 /* LaunchScreen.storyboard */,
-				9F9FC93C27A1A111007EC5A6 /* AvertaPE-Regular.otf */,
-				9F9FC93E27A1A155007EC5A6 /* AvertaPE-Semibold.otf */,
+				9F9FC94C27A2095E007EC5A6 /* Fonts */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -299,6 +298,15 @@
 				9F9FC93227A186D1007EC5A6 /* UserDefaultsScoreStorage.swift */,
 			);
 			path = ScoreStorage;
+			sourceTree = "<group>";
+		};
+		9F9FC94C27A2095E007EC5A6 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				9F9FC93C27A1A111007EC5A6 /* AvertaPE-Regular.otf */,
+				9F9FC93E27A1A155007EC5A6 /* AvertaPE-Semibold.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
