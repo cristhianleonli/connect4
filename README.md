@@ -5,7 +5,7 @@ This app is the 1st. monthly code challenge proposed by [@MoureDev](https://gith
 
 Screen 1 | Screen 2
 --- | ---
-![screen1](https://github.com/cristhianleonli/connect4/blob/main/screenshots/screen_1.png) | ![screen2](https://github.com/cristhianleonli/codeland/blob/main/screenshots/screen_2.png)
+![screen1](https://github.com/cristhianleonli/connect4/blob/main/screenshots/screen_1.png) | ![screen2](https://github.com/cristhianleonli/connect4/blob/main/screenshots/screen_2.png)
 
 ## Acknowledgements
 - Icons by [FlatIcon](https://www.flaticon.com/)
