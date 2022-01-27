@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+final class MainViewController: UIViewController {
     
     // MARK: IBOutlets
     
@@ -39,11 +39,6 @@ private extension MainViewController {
     @IBAction
     func playButtonTapped(_ sender: Any) {
         viewModel.showGameView(gameType: .single)
-    }
-    
-    @IBAction
-    func infoButtonTapped(_ sender: Any) {
-        viewModel.showInfoView()
     }
     
     func setupUI() {

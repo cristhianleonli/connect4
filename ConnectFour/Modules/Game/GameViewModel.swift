@@ -8,15 +8,15 @@
 import Combine
 import Foundation
 
-class GameViewModel: ObservableObject {
+final class GameViewModel: ObservableObject {
     
     private let coordinator: GameCoordinator
     private let container: GameContainer
     private let gameMode: GameConfiguration.GameMode
     private let gameConfig: GameConfiguration
     
-    private let youPlayer: Player
-    private let otherPlayer: Player
+    private var youPlayer: Player
+    private var otherPlayer: Player
     private var currentPlayer: Player
     
     private(set) var board: Board<String>
@@ -97,7 +97,26 @@ extension GameViewModel {
     }
     
     func restart() {
-        currentPlayer = youPlayer
+        // Creating the players again, based on the previous colors
+        // to avoid random repetition. The random selection only happens
+        // if the user leaves the screen. When the user stays, it will rotate
+        // red, yellow, red, yellow.
+        let youPlayer = Player(
+            name: Self.youPlayerName,
+            color: self.youPlayer.color == .red ? .yellow : .red,
+            managedByAI: false
+        )
+        
+        let otherPlayer = Player(
+            name: Self.otherPlayerName(gameMode: gameMode),
+            color: otherPlayer.color == .yellow ? .red : .yellow,
+            managedByAI: self.otherPlayer.managedByAI
+        )
+        
+        self.youPlayer = youPlayer
+        self.otherPlayer = otherPlayer
+        
+        self.currentPlayer = youPlayer
         self.currentState = .idle
         self.board = Board(width: gameConfig.boardWidth, height: gameConfig.boardHeight)
     }
@@ -118,6 +137,11 @@ extension GameViewModel {
     
     var hasMadeMoves: Bool {
         return board.isEmpty == false
+    }
+    
+    var canDeleteScores: Bool {
+        let scoreIsZero = container.scoreStorage.youScore == 0 && container.scoreStorage.otherScore == 0
+        return scoreIsZero == false
     }
     
     // TODO: Localize
@@ -196,7 +220,6 @@ extension GameViewModel {
 }
 
 private extension GameViewModel {
-    
     var managedByAI: Bool {
         return gameMode == .single
     }

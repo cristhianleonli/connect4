@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class MainButton: UIView {
+final class MainButton: UIView {
     
     // MARK: IBOutlets
     

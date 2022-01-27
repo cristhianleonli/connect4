@@ -17,6 +17,8 @@ struct ScoreViewModel {
     private let rightPlayer: Player
     private let turn: Turn
     
+    // MARK: Life cycle
+    
     init(leftScore: String, rightScore: String, leftPlayer: Player, rightPlayer: Player, turn: Turn) {
         self.leftScore = leftScore
         self.rightScore = rightScore
@@ -29,7 +31,9 @@ struct ScoreViewModel {
         case left
         case right
     }
-    
+}
+
+extension ScoreViewModel {
     var leftImage: UIImage? {
         return leftPlayer.displayTileImage
     }

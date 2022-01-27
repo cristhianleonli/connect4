@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GameViewController: UIViewController {
+final class GameViewController: UIViewController {
     
     // MARK: IBOutlets
     
@@ -65,10 +65,10 @@ private extension GameViewController {
                 preferredStyle:  .alert
             )
             
-            alert.addAction(UIAlertAction(title: viewModel.cancelAction, style: .default , handler: { (UIAlertAction) in
+            alert.addAction(UIAlertAction(title: viewModel.cancelAction, style: .default, handler: { _ in
             }))
             
-            alert.addAction(UIAlertAction(title: viewModel.leaveAction, style: .destructive , handler: { [weak self] (UIAlertAction)  in
+            alert.addAction(UIAlertAction(title: viewModel.leaveAction, style: .destructive, handler: { [weak self] _ in
                 self?.viewModel.navigateBack()
             }))
             
@@ -118,7 +118,7 @@ private extension GameViewController {
                 case .idle:
                     self.refreshUI()
                 case .rendering:
-                    // TODO: Add animation
+                    // TODO: Add an animated tile, falling from the arrow
                     self.drawBoard()
                     self.viewModel.postMovingChecks()
                 case .finished(let winner):
@@ -141,21 +141,23 @@ private extension GameViewController {
     }
     
     func deleteStoredData() {
-        let alert = UIAlertController(
-            title: viewModel.deleteAlertTitle,
-            message: viewModel.deleteAlertSubtitle,
-            preferredStyle:  .alert
-        )
-        
-        alert.addAction(UIAlertAction(title: viewModel.cancelAction, style: .default , handler: { (UIAlertAction)in
-        }))
-        
-        alert.addAction(UIAlertAction(title: viewModel.deleteAction, style: .destructive , handler: { (UIAlertAction)in
-            self.viewModel.deleteSavedData()
-            self.refreshUI()
-        }))
-        
-        self.present(alert, animated: true)
+        if viewModel.canDeleteScores {
+            let alert = UIAlertController(
+                title: viewModel.deleteAlertTitle,
+                message: viewModel.deleteAlertSubtitle,
+                preferredStyle:  .alert
+            )
+            
+            alert.addAction(UIAlertAction(title: viewModel.cancelAction, style: .default, handler: { _ in
+            }))
+            
+            alert.addAction(UIAlertAction(title: viewModel.deleteAction, style: .destructive, handler: { _ in
+                self.viewModel.deleteSavedData()
+                self.refreshUI()
+            }))
+            
+            self.present(alert, animated: true)
+        }
     }
     
     func restart(force: Bool = false) {
@@ -181,18 +183,15 @@ private extension GameViewController {
                 preferredStyle:  .alert
             )
             
-            alert.addAction(UIAlertAction(title: viewModel.cancelAction, style: .default , handler: { (UIAlertAction) in
+            alert.addAction(UIAlertAction(title: viewModel.cancelAction, style: .default, handler: { _ in
             }))
             
-            alert.addAction(UIAlertAction(title: viewModel.restartAction, style: .destructive , handler: { [weak self] (UIAlertAction)  in
+            alert.addAction(UIAlertAction(title: viewModel.restartAction, style: .destructive, handler: { [weak self] _ in
                 self?.viewModel.restart()
                 self?.refreshUI()
             }))
             
             self.present(alert, animated: true)
-        } else {
-            self.viewModel.restart()
-            self.refreshUI()
         }
     }
     
@@ -204,7 +203,7 @@ private extension GameViewController {
     
     func drawArrows() {
         for index in 0..<viewModel.board.columnCount {
-            arrows[index].alpha = viewModel.canAddTiles(at: index) ? 1 : 0
+            arrows[index].alpha = viewModel.canAddTiles(at: index) ? 0.2 : 0
         }
     }
     

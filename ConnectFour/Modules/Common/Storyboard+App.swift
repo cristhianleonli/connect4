@@ -15,4 +15,8 @@ extension UIStoryboard {
     static var game: UIStoryboard {
         return UIStoryboard(name: "Game", bundle: .main)
     }
+    
+    static var info: UIStoryboard {
+        return UIStoryboard(name: "Info", bundle: .main)
+    }
 }

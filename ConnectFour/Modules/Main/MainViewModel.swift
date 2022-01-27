@@ -10,26 +10,20 @@ import Foundation
 final class MainViewModel {
     
     private let coordinator: MainCoordinator
-    private let container: MainContainer
     
     enum GameType {
         case single
         case multiplayer
     }
     
-    init(coordinator: MainCoordinator, container: MainContainer) {
+    init(coordinator: MainCoordinator) {
         self.coordinator = coordinator
-        self.container = container
     }
 }
 
 extension MainViewModel {
     func showGameView(gameType: GameType) {
         coordinator.showGameView(gameType: gameType)
-    }
-    
-    func showInfoView() {
-        coordinator.showInfoView()
     }
     
     // TODO: Localize

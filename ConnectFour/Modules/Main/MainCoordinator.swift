@@ -16,8 +16,7 @@ final class MainCoordinator: Coordinator {
     }
     
     func start() {
-        let container = MainContainer()
-        let viewModel = MainViewModel(coordinator: self, container: container)
+        let viewModel = MainViewModel(coordinator: self)
         
         let viewController: MainViewController = UIStoryboard.main.instantiateViewController()
         viewController.viewModel = viewModel
@@ -27,9 +26,5 @@ final class MainCoordinator: Coordinator {
     
     func showGameView(gameType: MainViewModel.GameType) {
         GameCoordinator(navigationController).start()
-    }
-    
-    func showInfoView() {
-        
     }
 }

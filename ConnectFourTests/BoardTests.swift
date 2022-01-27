@@ -335,4 +335,79 @@ class BoardTests: XCTestCase {
         // Then
         XCTAssertEqual(board.findWinner(), 1)
     }
+    
+    func test_FindWinner_GivenUpRightWinner_ShouldMatch() {
+        // Given
+        let width = 7
+        let height = 6
+        let board: Board<Int> = Board(width: width, height: height)
+        
+        // When
+        board.addTile(value: 1, toColumn: 0)
+        
+        board.addTile(value: 2, toColumn: 1)
+        board.addTile(value: 1, toColumn: 1)
+        
+        board.addTile(value: 2, toColumn: 2)
+        board.addTile(value: 2, toColumn: 2)
+        board.addTile(value: 1, toColumn: 2)
+        
+        board.addTile(value: 2, toColumn: 3)
+        board.addTile(value: 2, toColumn: 3)
+        board.addTile(value: 2, toColumn: 3)
+        board.addTile(value: 1, toColumn: 3)
+        
+        // Then
+        XCTAssertEqual(board.findWinner(), 1)
+    }
+    
+    func test_FindWinner_GivenDownRight_ShouldMatch() {
+        // Given
+        let width = 7
+        let height = 6
+        let board: Board<Int> = Board(width: width, height: height)
+        
+        // When
+        board.addTile(value: 2, toColumn: 0)
+        board.addTile(value: 2, toColumn: 0)
+        board.addTile(value: 2, toColumn: 0)
+        board.addTile(value: 1, toColumn: 0)
+        
+        board.addTile(value: 2, toColumn: 1)
+        board.addTile(value: 2, toColumn: 1)
+        board.addTile(value: 1, toColumn: 1)
+        
+        board.addTile(value: 2, toColumn: 2)
+        board.addTile(value: 1, toColumn: 2)
+        
+        board.addTile(value: 1, toColumn: 3)
+        
+        // Then
+        XCTAssertEqual(board.findWinner(), 1)
+    }
+    
+    func test_FindWinner_GivenUpLeft_ShouldMatch() {
+        // Given
+        let width = 7
+        let height = 6
+        let board: Board<Int> = Board(width: width, height: height)
+        
+        // When
+        board.addTile(value: 2, toColumn: 3)
+        board.addTile(value: 2, toColumn: 3)
+        board.addTile(value: 2, toColumn: 3)
+        board.addTile(value: 1, toColumn: 3)
+        
+        board.addTile(value: 2, toColumn: 4)
+        board.addTile(value: 2, toColumn: 4)
+        board.addTile(value: 1, toColumn: 4)
+        
+        board.addTile(value: 2, toColumn: 5)
+        board.addTile(value: 1, toColumn: 5)
+        
+        board.addTile(value: 1, toColumn: 6)
+        
+        // Then
+        XCTAssertEqual(board.findWinner(), 1)
+    }
 }

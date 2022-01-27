@@ -9,7 +9,11 @@ import Foundation
 
 final class Board<T> where T: Comparable {
     
+    // MARK: Properties
+    
     private var matrix: [[T?]]
+    
+    // MARK: Life cycle
     
     init(width: Int, height: Int) {
         var temp: [[T?]] = []
@@ -20,7 +24,9 @@ final class Board<T> where T: Comparable {
         
         matrix = temp
     }
-    
+}
+
+extension Board {
     func addTile(value: T, toColumn index: Int) {
         let column = matrix[index]
         
@@ -82,6 +88,67 @@ final class Board<T> where T: Comparable {
         }
         
         // check diagonally
+        let items = 3
+        
+        for i in 0..<matrix.count {
+            for j in 0..<matrix[i].count {
+                
+                if matrix[i][j] == nil {
+                    continue
+                }
+                
+                var found = false
+                
+                // up-right +x -y. This also works as down-left
+                if i + items < matrix.count && j - items >= 0 {
+                    var x = i
+                    var y = j
+                    var pivot = matrix[x][y]
+                    found = true
+                    
+                    while x <= i + items, y >= j - items {
+                        if matrix[x][y] != pivot {
+                            found = false
+                            break
+                        }
+                        
+                        pivot = matrix[x][y]
+                        
+                        x += 1
+                        y -= 1
+                    }
+                }
+                
+                if found {
+                    return matrix[i][j]
+                }
+                
+                // down-right +x +y. This also works as up-left
+                if i + items < matrix.count && j + items < matrix[i].count {
+                    var x = i
+                    var y = j
+                    var pivot = matrix[x][y]
+                    found = true
+                    
+                    while x <= i + items, y <= j + items {
+                        if matrix[x][y] != pivot {
+                            found = false
+                            break
+                        }
+                        
+                        pivot = matrix[x][y]
+                        
+                        x += 1
+                        y += 1
+                    }
+                }
+                
+                if found {
+                    return matrix[i][j]
+                }
+            }
+        }
+        
         return nil
     }
     
@@ -143,7 +210,7 @@ final class Board<T> where T: Comparable {
                 } else {
                     adjacentCount = 1
                 }
-
+                
                 previous = item
             }
             

@@ -82,7 +82,6 @@ extension ScoreView {
             self.leftIndicator.backgroundColor = model.leftIndicatorColor
             self.rightIndicator.backgroundColor = model.rightIndicatorColor
         } completion: { _ in
-            
         }
     }
 }
