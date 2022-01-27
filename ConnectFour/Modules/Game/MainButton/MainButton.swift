@@ -32,22 +32,6 @@ final class MainButton: UIView {
         super.init(frame: frame)
         commonInit()
     }
-    
-    func setup(title: String, image: UIImage, action: @escaping () -> Void) {
-        // button content
-        wrapperView.layer.cornerRadius = 12
-        wrapperView.backgroundColor = Colors.gameButton
-        wrapperView.clipsToBounds = true
-        
-        titleLabel.text = title
-        imageView.image = image
-        
-        // save closure for later executions
-        self.onButtonTapped = action
-        
-        // setup ui components
-        titleLabel.font = Fonts.averta(weight: .regular, size: 15)
-    }
 }
 
 private extension MainButton {
@@ -70,3 +54,20 @@ private extension MainButton {
     }
 }
 
+extension MainButton {
+    func setup(title: String, image: UIImage, action: @escaping () -> Void) {
+        // button content
+        wrapperView.layer.cornerRadius = 12
+        wrapperView.backgroundColor = Colors.gameButton
+        wrapperView.clipsToBounds = true
+        
+        titleLabel.text = title
+        imageView.image = image
+        
+        // save closure for later executions
+        self.onButtonTapped = action
+        
+        // setup ui components
+        titleLabel.font = Fonts.averta(weight: .regular, size: 15)
+    }
+}

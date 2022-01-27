@@ -22,8 +22,11 @@ final class SpotView: UIView {
         backgroundColor = Colors.board
         updateMask()
     }
-    
-    private func updateMask() {
+}
+
+private extension SpotView {
+    /// Cuts a circle out of the view, to make the effect of the board
+    func updateMask() {
         let maskLayer = CAShapeLayer()
         maskLayer.frame = bounds
         let radius: CGFloat = frame.width / 2

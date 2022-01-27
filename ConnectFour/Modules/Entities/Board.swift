@@ -27,6 +27,10 @@ final class Board<T> where T: Comparable {
 }
 
 extension Board {
+    /// Adds an item to the matrix at the given index. If there's no space in the column, the insertion is ignored.
+    /// - Parameters:
+    ///   - value: value to insert. Normally the player id
+    ///   - index: position to insert the item
     func addTile(value: T, toColumn index: Int) {
         let column = matrix[index]
         
@@ -47,31 +51,35 @@ extension Board {
         matrix[index][emptyIndex] = value
     }
     
+    /// For testing purposes
     var items: [[T?]] {
         return matrix
     }
     
+    /// Finds how many tiles there are in a given column.
+    /// - Parameter index: Position where to look up for
+    /// - Returns: the count of items in the given column
     func numberOfTiles(at index: Int) -> Int {
         guard index >= 0, index < matrix.count else {
             print("Trying to access a position that doesn't exist")
             return matrix.count
         }
         
-        var count = 0
-        
-        for item in matrix[index] {
-            if item != nil {
-                count += 1
-            }
-        }
-        
-        return count
+        return matrix[index].compactMap({ $0 }).count
     }
     
+    /// This algorithm consists of 3 main parts. Horizontal, Vertical, Diagonal Up-Right, Diagonal Down-Right
+    /// Horizontal search looks for 4 items in a row, considering spaces
+    /// Vertical search looks fort 4 items in a row, ignoring spaces
+    /// Diagonal Up-Right search looks from start to end(within the bounds) adding x, subtracting y
+    /// Diagonal Down-Right search looks from start to end(within the bounds) adding x, adding y
+    /// - Returns: the element that first repeats 4 times in a row, following the specified order. H, V, D-UP, D-DR
     func findWinner() -> T? {
+        let consecutiveItems = 4
+        
         // check vertically, if there are >= 4 adjacent elements
         for column in matrix {
-            if let winner = findAdjancentElements(list: column.compactMap({ $0 })) {
+            if let winner = findAdjancentElements(list: column.compactMap({ $0 }), n: consecutiveItems) {
                 return winner
             }
         }
@@ -82,7 +90,7 @@ extension Board {
             // vertical items in a single list
             let list = matrix.map({ $0[index] })
             
-            if let winner = findAdjancentElements(list: list) {
+            if let winner = findAdjancentElements(list: list, n: consecutiveItems) {
                 return winner
             }
         }
@@ -152,6 +160,7 @@ extension Board {
         return nil
     }
     
+    /// If all elements are non-nil, return true, otherwise false.
     var isFull: Bool {
         for column in matrix {
             for item in column {
@@ -164,14 +173,17 @@ extension Board {
         return true
     }
     
+    /// Number of items in the 1st. dimension of the matrix.
     var columnCount: Int {
         return matrix.count
     }
     
+    /// Number of items in the 2nd. dimension of the matrix.
     var rowCount: Int {
         return matrix[0].count
     }
     
+    /// If all elements are nil, returns true, otherwise false.
     var isEmpty: Bool {
         for column in matrix {
             for item in column {
@@ -184,6 +196,9 @@ extension Board {
         return true
     }
     
+    ///  Find the item at the given `index`.
+    /// - Parameter index: Position where to look up
+    /// - Returns: the element at the given index, if the position is not valid, it will return nil
     func getItem(at index: VectorInt) -> T? {
         guard index.x >= 0, index.x < matrix.count else {
             return nil
@@ -196,7 +211,11 @@ extension Board {
         return matrix[index.x][index.y]
     }
     
-    func findAdjancentElements(list: [T?]) -> T? {
+    
+    /// Checks if the list contains an element`n` times consecutively.
+    /// - Parameter list: list to chek up for
+    /// - Returns: the element that repeats `n` times in a row
+    func findAdjancentElements(list: [T?], n: Int) -> T? {
         var adjacentCount = 1
         var previous: T?
         
@@ -215,7 +234,7 @@ extension Board {
             }
             
             // check for a winner in every item iteration
-            if adjacentCount >= 4 {
+            if adjacentCount >= n {
                 return previous
             }
         }

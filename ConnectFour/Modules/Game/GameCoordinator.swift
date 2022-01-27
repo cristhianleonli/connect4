@@ -9,12 +9,20 @@ import UIKit
 
 final class GameCoordinator: Coordinator {
     
+    // MARK: Properties
+    
     var navigationController: UINavigationController
+    
+    // MARK: Life cycle
     
     init(_ navController: UINavigationController) {
         navigationController = navController
     }
-    
+}
+
+// MARK: Navigation
+
+extension GameCoordinator {
     func start() {
         // dependencies required by viewModel to work properly
         let container = GameContainer(scoreStorage: UserDefaultsScoreStorage())

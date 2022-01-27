@@ -31,7 +31,9 @@ class UserDefaultsScoreStorage: ScoreStorage {
             UserDefaults.standard.set(newValue, forKey: otherScoreKey)
         }
     }
-    
+}
+
+extension UserDefaultsScoreStorage {
     func increaseYouScore(by amount: Int) {
         youScore += amount
     }

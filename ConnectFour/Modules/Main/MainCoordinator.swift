@@ -9,12 +9,20 @@ import UIKit
 
 final class MainCoordinator: Coordinator {
     
+    // MARK: Properties
+    
     var navigationController: UINavigationController
+    
+    // MARK: Life cycle
     
     init(_ navController: UINavigationController) {
         navigationController = navController
     }
-    
+}
+
+// MARK: Navigation
+
+extension MainCoordinator {
     func start() {
         let viewModel = MainViewModel(coordinator: self)
         

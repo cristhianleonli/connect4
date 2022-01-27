@@ -62,6 +62,51 @@ final class GameViewModel: ObservableObject {
     }
 }
 
+private extension GameViewModel {
+    var managedByAI: Bool {
+        return gameMode == .single
+    }
+    
+    var players: [Player] {
+        return [youPlayer, otherPlayer]
+    }
+    
+    func endGame(winner: Player?) {
+        if let winner = winner {
+            if winner == youPlayer {
+                container.scoreStorage.increaseYouScore(by: 1)
+            } else {
+                container.scoreStorage.increaseOtherScore(by: 1)
+            }
+        }
+        
+        currentState = .finished(winner)
+    }
+    
+    func endTurn() {
+        guard var currentIndex = players.firstIndex(where: { $0.id == currentPlayer.id }) else {
+            return
+        }
+        
+        currentIndex = (currentIndex + 1) % players.count
+        currentPlayer = players[currentIndex]
+        currentState = .idle
+    }
+    
+    // TODO: Localize
+    
+    static func otherPlayerName(gameMode: GameConfiguration.GameMode) -> String {
+        switch gameMode {
+        case .single: return "PC"
+        case .multiplayer: return "Friend"
+        }
+    }
+    
+    static var youPlayerName: String {
+        return "You"
+    }
+}
+
 extension GameViewModel {
     func navigateBack() {
         coordinator.navigateBack()
@@ -216,50 +261,5 @@ extension GameViewModel {
     
     var clearButton: String {
         return "Clear"
-    }
-}
-
-private extension GameViewModel {
-    var managedByAI: Bool {
-        return gameMode == .single
-    }
-    
-    var players: [Player] {
-        return [youPlayer, otherPlayer]
-    }
-    
-    func endGame(winner: Player?) {
-        if let winner = winner {
-            if winner == youPlayer {
-                container.scoreStorage.increaseYouScore(by: 1)
-            } else {
-                container.scoreStorage.increaseOtherScore(by: 1)
-            }
-        }
-        
-        currentState = .finished(winner)
-    }
-    
-    func endTurn() {
-        guard var currentIndex = players.firstIndex(where: { $0.id == currentPlayer.id }) else {
-            return
-        }
-        
-        currentIndex = (currentIndex + 1) % players.count
-        currentPlayer = players[currentIndex]
-        currentState = .idle
-    }
-    
-    // TODO: Localize
-    
-    static func otherPlayerName(gameMode: GameConfiguration.GameMode) -> String {
-        switch gameMode {
-        case .single: return "PC"
-        case .multiplayer: return "Friend"
-        }
-    }
-    
-    static var youPlayerName: String {
-        return "You"
     }
 }

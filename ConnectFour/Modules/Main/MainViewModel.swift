@@ -9,12 +9,16 @@ import Foundation
 
 final class MainViewModel {
     
+    // MARK: Properties
+    
     private let coordinator: MainCoordinator
     
     enum GameType {
         case single
         case multiplayer
     }
+    
+    // MARK: Life cycle
     
     init(coordinator: MainCoordinator) {
         self.coordinator = coordinator
